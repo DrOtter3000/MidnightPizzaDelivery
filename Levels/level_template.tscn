@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://dps74tw4e0l27"]
+
+[ext_resource type="PackedScene" uid="uid://lnx7yyjl7iae" path="res://Assets/Ground/Prototype/SM_Buildings_Floor_5x5_01.fbx" id="1_gbce7"]
+[ext_resource type="PackedScene" uid="uid://b04mao8a63s5n" path="res://Assets/Environment/Prototype/SM_Buildings_Block_1x1_01.fbx" id="2_s7a6p"]
+[ext_resource type="PackedScene" uid="uid://c7c8ekomibgfg" path="res://Characters/Player/player.tscn" id="3_nsw7g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nsw7g"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_sjjkl"]
+sky_material = SubResource("ProceduralSkyMaterial_nsw7g")
+
+[sub_resource type="Environment" id="Environment_rbi8j"]
+background_mode = 2
+sky = SubResource("Sky_sjjkl")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="LevelTemplate" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rbi8j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="Node3D" parent="."]
+
+[node name="SM_Buildings_Floor_5x5_01" parent="Ground" instance=ExtResource("1_gbce7")]
+
+[node name="SM_Buildings_Floor_5x5_02" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="SM_Buildings_Floor_5x5_03" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="SM_Buildings_Floor_5x5_04" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="SM_Buildings_Floor_5x5_05" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="SM_Buildings_Floor_5x5_06" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 10)
+
+[node name="SM_Buildings_Floor_5x5_07" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="SM_Buildings_Floor_5x5_08" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="SM_Buildings_Floor_5x5_09" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="SM_Buildings_Floor_5x5_10" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="SM_Buildings_Floor_5x5_11" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="SM_Buildings_Floor_5x5_12" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5)
+
+[node name="SM_Buildings_Floor_5x5_13" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+
+[node name="SM_Buildings_Floor_5x5_14" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 10)
+
+[node name="SM_Buildings_Floor_5x5_15" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="SM_Buildings_Floor_5x5_16" parent="Ground" instance=ExtResource("1_gbce7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 5)
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="SM_Buildings_Block_1x1_01" parent="Environment" instance=ExtResource("2_s7a6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Player" parent="." instance=ExtResource("3_nsw7g")]
