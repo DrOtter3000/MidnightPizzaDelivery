@@ -3,8 +3,22 @@ extends CharacterBody3D
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var character_mover: Node3D = $CharacterMover
 @onready var health_manager: Node3D = $HealthManager
+@onready var weapon_manager: Node3D = $Camera3D/WeaponManager
 
 @export var mouse_sensetivity := .15
+
+const HOTKEYS = {
+	KEY_1: 0,
+	KEY_2: 1,
+	KEY_3: 2,
+	KEY_4: 3,
+	KEY_5: 4,
+	KEY_6: 5,
+	KEY_7: 6,
+	KEY_8: 7,
+	KEY_9: 8,
+	KEY_0: 9
+}
 
 var dead := false
 
@@ -40,6 +54,15 @@ func _input(event: InputEvent) -> void:
 		rotation_degrees.y -= event.relative.x * mouse_sensetivity
 		camera_3d.rotation_degrees.x -= event.relative.y * mouse_sensetivity
 		camera_3d.rotation_degrees.x = clamp(camera_3d.rotation_degrees.x, -90, 90)
+	
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			weapon_manager.switch_to_previous_weapon()
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			weapon_manager.switch_to_next_weapon()
+	
+	if event is InputEventKey and event.pressed and event.keycode in HOTKEYS:
+		weapon_manager.switch_to_weapon_slot(HOTKEYS[event.keycode])
 
 
 func kill():
