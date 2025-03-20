@@ -68,3 +68,7 @@ func _input(event: InputEvent) -> void:
 func kill():
 	dead = true
 	character_mover.set_move_dir(Vector3.ZERO)
+
+
+func hurt(damage_data: DamageData):
+	health_manager.hurt(damage_data)

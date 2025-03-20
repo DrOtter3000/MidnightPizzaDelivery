@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkaevso373mec"]
+
+[ext_resource type="Script" uid="uid://kf6rlgb2j0my" path="res://Weapons/hit_scan_bullet_emitter.gd" id="1_k3fwx"]
+
+[node name="HitScanBulletEmitter" type="Node3D"]
+script = ExtResource("1_k3fwx")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -100000)
+collision_mask = 5
