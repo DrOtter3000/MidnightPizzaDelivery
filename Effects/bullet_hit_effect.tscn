@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c0hn5lyb7d6eq"]
+
+[node name="BulletHitEffect" type="Node3D"]
