@@ -9,9 +9,23 @@ Midnight Pizza Delivery is a simple lowpoly rouglight ego shooter, where you are
 - Platforms: Linux(primary), Windows, Mac
 - Assets: Synty Store low-poly asset packs 
 
+
+## Controls
+
+**Walk** = W A S D
+**Attack** = left mouse button
+
+
 ## Installation & Running the Game
 
 There is no version released yet. But if you want to test it, download the project files and run it in your Godot game engine.
+
+
+## Participate and Support
+
+If you want to support this game or me, rate it, share it with your friends and community, stream yourself playing it and follow me on my socials. 
+You are also welcome to open issues on this github page.
+
 
 ## License
 
