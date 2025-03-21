@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy3daalkykyi2"]
+
+[ext_resource type="Script" uid="uid://31cm8byomdx1" path="res://Weapons/spray_emitter.gd" id="1_l0as3"]
+
+[node name="SprayEmitter" type="Node3D"]
+script = ExtResource("1_l0as3")
