@@ -10,6 +10,7 @@ class_name Weapon
 @export var damage := 5
 @export var ammo := 30
 @export var attack_rate := .2
+@export var animation_controlled_attack := false
 
 var last_attack_time := -9999.9
 
@@ -42,8 +43,9 @@ func attack(input_just_pressed: bool, input_held: bool):
 	if ammo > 0:
 		ammo -= 1
 	
-	bullet_emitter.global_transform = fire_point.global_transform
-	bullet_emitter.fire()
+	if !animation_controlled_attack:
+		actually_attack()
+	
 	last_attack_time = cur_time
 	animation_player.stop()
 	animation_player.play("attack")
@@ -55,3 +57,8 @@ func set_active(a: bool):
 	visible = a
 	if !a:
 		animation_player.play("RESET")
+
+
+func actually_attack():
+	bullet_emitter.global_transform = fire_point.global_transform
+	bullet_emitter.fire()

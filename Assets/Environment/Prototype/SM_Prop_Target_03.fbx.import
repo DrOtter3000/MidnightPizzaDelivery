@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bwhmrbojguge6"
-path="res://.godot/imported/SM_Prop_Target_02.fbx-830394adf8bdd776202192bf4f89f5ff.scn"
+uid="uid://d382skyo1i0u6"
+path="res://.godot/imported/SM_Prop_Target_03.fbx-e378ed566559c7c0803b8151b0ec122a.scn"
 
 [deps]
 
-source_file="res://Assets/PolygonPacks/Polygon_Prototype/FBX/SM_Prop_Target_02.fbx"
-dest_files=["res://.godot/imported/SM_Prop_Target_02.fbx-830394adf8bdd776202192bf4f89f5ff.scn"]
+source_file="res://Assets/Environment/Prototype/SM_Prop_Target_03.fbx"
+dest_files=["res://.godot/imported/SM_Prop_Target_03.fbx-e378ed566559c7c0803b8151b0ec122a.scn"]
 
 [params]
 

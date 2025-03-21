@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d382skyo1i0u6"
-path="res://.godot/imported/SM_Prop_Target_03.fbx-0a4527f7fbf1568ed0e21cdfbf0e8ce7.scn"
+uid="uid://bm6elhmsjjtjy"
+path="res://.godot/imported/SM_Prop_Target_01.fbx-e5e66524bca04c87b441b15497a670b0.scn"
 
 [deps]
 
-source_file="res://Assets/PolygonPacks/Polygon_Prototype/FBX/SM_Prop_Target_03.fbx"
-dest_files=["res://.godot/imported/SM_Prop_Target_03.fbx-0a4527f7fbf1568ed0e21cdfbf0e8ce7.scn"]
+source_file="res://Assets/Environment/Prototype/SM_Prop_Target_01.fbx"
+dest_files=["res://.godot/imported/SM_Prop_Target_01.fbx-e5e66524bca04c87b441b15497a670b0.scn"]
 
 [params]
 
@@ -32,7 +32,14 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"lambert4SG2": {
+"use_external/enabled": true,
+"use_external/path": "uid://c0x4sfufonbht"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
