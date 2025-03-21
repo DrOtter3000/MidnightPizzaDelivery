@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=28 format=3 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://bfmsxvdg2meab" path="res://Characters/Player/weapon_manager.gd" id="2_bqsbk"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dt2n6pjbchdm1" path="res://Assets/Weapons/SM_Wep_Shotgun_01.fbx" id="5_r5ew0"]
 [ext_resource type="PackedScene" uid="uid://bapre56qlip7g" path="res://Assets/Weapons/SM_Wep_RPG_01.fbx" id="6_klx3t"]
 [ext_resource type="PackedScene" uid="uid://vrtuiiylco7r" path="res://Weapons/bullet_emitter.tscn" id="6_u2wkb"]
+[ext_resource type="PackedScene" uid="uid://brfl4nianmpt4" path="res://Effects/Muzzle_Flash/Assets/SM_Flame_FX.fbx" id="7_b6jp0"]
 [ext_resource type="PackedScene" uid="uid://dkaevso373mec" path="res://Weapons/hit_scan_bullet_emitter.tscn" id="7_b71o8"]
+[ext_resource type="PackedScene" uid="uid://bt1os3c73hkth" path="res://Effects/Muzzle_Flash/muzzle_flash.tscn" id="7_x58m1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygrrk"]
 
@@ -295,9 +297,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_u2wkb")
 }
 
-[node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/AssaultRifle/Graphics" instance=ExtResource("6_u2wkb")]
+[node name="MuzzleFlash" parent="Camera3D/WeaponManager/Weapons/AssaultRifle/Graphics" instance=ExtResource("7_x58m1")]
+transform = Transform3D(1, 0, -5.68434e-14, 0, 1, 0, 5.68434e-14, 0, 1, -0.00212404, 0.0783336, 0.496089)
 
-[node name="HitScanBulletEmitter" parent="Camera3D/WeaponManager/Weapons/AssaultRifle/Graphics/BulletEmitter" instance=ExtResource("7_b71o8")]
+[node name="SM_Flame_FX" parent="Camera3D/WeaponManager/Weapons/AssaultRifle/Graphics/MuzzleFlash" instance=ExtResource("7_b6jp0")]
+transform = Transform3D(0.5, 0, 1.91068e-15, 1.91069e-15, 2.18557e-08, -0.5, -7.10543e-15, 0.5, 2.18557e-08, 0, 0, 0)
+
+[node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/AssaultRifle" instance=ExtResource("6_u2wkb")]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
+
+[node name="HitScanBulletEmitter" parent="Camera3D/WeaponManager/Weapons/AssaultRifle/BulletEmitter" instance=ExtResource("7_b71o8")]
 
 [node name="Shotgun" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)

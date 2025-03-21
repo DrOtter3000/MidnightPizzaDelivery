@@ -2,7 +2,7 @@ extends Node3D
 class_name Weapon
 
 @onready var animation_player: AnimationPlayer = $Graphics/AnimationPlayer
-@onready var bullet_emitter: BulletEmitter = $Graphics/BulletEmitter
+@onready var bullet_emitter: BulletEmitter = $BulletEmitter
 @onready var fire_point: Node3D = %FirePoint
 
 @export var automatic := false
@@ -47,6 +47,9 @@ func attack(input_just_pressed: bool, input_held: bool):
 	last_attack_time = cur_time
 	animation_player.stop()
 	animation_player.play("attack")
+	if has_node("Graphics/MuzzleFlash"):
+		$Graphics/MuzzleFlash.flash()
+
 
 func set_active(a: bool):
 	visible = a

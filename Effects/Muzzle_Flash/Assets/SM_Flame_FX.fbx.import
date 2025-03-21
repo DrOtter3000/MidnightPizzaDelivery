@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cup15qthyhhro"
-path="res://.godot/imported/FX_Sphere_Spikes_02.fbx-07f41ade8f5cb4e7e0a4c014e246adf5.scn"
+uid="uid://brfl4nianmpt4"
+path="res://.godot/imported/SM_Flame_FX.fbx-c52987d8cc6f3e0726fc708f6be7e7a4.scn"
 
 [deps]
 
-source_file="res://Assets/PolygonPacks/POLYGON_ParticleFX_SourceFiles_v2/FBX/FX_Sphere_Spikes_02.fbx"
-dest_files=["res://.godot/imported/FX_Sphere_Spikes_02.fbx-07f41ade8f5cb4e7e0a4c014e246adf5.scn"]
+source_file="res://Effects/Muzzle_Flash/Assets/SM_Flame_FX.fbx"
+dest_files=["res://.godot/imported/SM_Flame_FX.fbx-c52987d8cc6f3e0726fc708f6be7e7a4.scn"]
 
 [params]
 
@@ -32,7 +32,19 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"lambert1": {
+"use_external/enabled": true,
+"use_external/path": "uid://cmdl1ip2p1wqe"
+}
+},
+"nodes": {
+"PATH:SM_Flame_FX": {
+"mesh_instance/cast_shadow": 0
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
