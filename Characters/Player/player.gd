@@ -44,6 +44,8 @@ func _process(delta: float) -> void:
 	character_mover.set_move_dir(move_dir)
 	if Input.is_action_just_pressed("jump"):
 		character_mover.jump()
+	
+	weapon_manager.attack(Input.is_action_just_pressed("fire"), Input.is_action_pressed("fire"))
 
 
 func _input(event: InputEvent) -> void:

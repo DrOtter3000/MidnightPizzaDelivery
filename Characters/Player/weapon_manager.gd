@@ -12,6 +12,12 @@ func _ready():
 	for _i in range(weapons.size()):
 		#weapons_unlocked.append(false)
 		weapons_unlocked.append(true)
+	switch_to_weapon_slot(0)
+
+
+func attack(input_just_pressed: bool, input_held: bool):
+	if cur_weapon is Weapon:
+		cur_weapon.attack(input_just_pressed, input_held)
 
 
 func disable_all_weapons():
