@@ -63,3 +63,7 @@ func set_active(a: bool):
 func actually_attack():
 	bullet_emitter.global_transform = fire_point.global_transform
 	bullet_emitter.fire()
+
+
+func is_idle() -> bool:
+	return !animation_player.is_playing()
