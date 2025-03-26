@@ -54,6 +54,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 
 
 func set_active(a: bool):
+	$Crosshair.visible = a
 	visible = a
 	if !a:
 		animation_player.play("RESET")

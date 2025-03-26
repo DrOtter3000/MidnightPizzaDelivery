@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr5qta2c2xt2"]
+
+[ext_resource type="Script" uid="uid://c7re7ygtkahct" path="res://Weapons/crosshair.gd" id="1_veshn"]
+[ext_resource type="Script" uid="uid://hry581mugkyx" path="res://Weapons/crosshair_shape.gd" id="2_v80hi"]
+
+[node name="Crosshair" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_veshn")
+
+[node name="CrosshairShape" type="Control" parent="."]
+layout_mode = 2
+script = ExtResource("2_v80hi")
