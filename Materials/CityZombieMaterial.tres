@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://vm0020o6sdak"]
+
+[ext_resource type="Texture2D" uid="uid://cspj08l8n36j" path="res://Materials/Textures/CityZombies/Textures/PolygonZombie_Texture_01_C.png" id="1_4rjqx"]
+[ext_resource type="Texture2D" uid="uid://dvtbjuybrikcc" path="res://Materials/Textures/CityZombies/Textures/PolygonZombie_Emissive.png" id="2_ro3a2"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_4rjqx")
+emission_enabled = true
+emission_texture = ExtResource("2_ro3a2")
