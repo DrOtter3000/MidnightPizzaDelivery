@@ -1,0 +1,198 @@
+[gd_scene load_steps=10 format=3 uid="uid://uru0j5mfroai"]
+
+[ext_resource type="PackedScene" uid="uid://c5cfpv5ky73ss" path="res://Characters/Enemies/enemy.tscn" id="1_ngehh"]
+[ext_resource type="PackedScene" uid="uid://blhecke1a573m" path="res://Characters/Enemies/Zombie/Zombie_Businessman.fbx" id="2_e0rn1"]
+[ext_resource type="PackedScene" uid="uid://cklna0ujtsslx" path="res://Characters/hit_box.tscn" id="3_guj4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0rn1"]
+size = Vector3(0.236084, 0.347778, 0.290283)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_an7no"]
+size = Vector3(0.32196, 0.719177, 0.32074)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_guj4q"]
+radius = 0.0702525
+height = 0.376721
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_an7no"]
+radius = 0.0609311
+height = 0.581878
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_huhvp"]
+radius = 0.072767
+height = 0.443723
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l55f8"]
+radius = 0.0485349
+height = 0.438492
+
+[node name="Zombie" instance=ExtResource("1_ngehh")]
+
+[node name="Zombie_Businessman" parent="Graphics" index="0" instance=ExtResource("2_e0rn1")]
+
+[node name="Root" parent="Graphics/Zombie_Businessman" index="0"]
+transform = Transform3D(1, 7.87208e-07, 2.32095e-08, -7.87208e-07, 1, -4.37114e-08, -2.32096e-08, 4.37114e-08, 1, -6.36331e-07, 0.00293549, 0.0179293)
+
+[node name="Skeleton3D" parent="Graphics/Zombie_Businessman/Root" index="0"]
+bones/1/rotation = Quaternion(0.0996796, 0.99502, 7.62459e-07, 2.10207e-07)
+bones/2/rotation = Quaternion(0.0980037, 0.995186, -2.97419e-08, -1.36731e-07)
+bones/3/rotation = Quaternion(0.111091, 0.99381, -1.28877e-08, 1.32547e-07)
+bones/4/rotation = Quaternion(-7.67492e-10, 2.81612e-07, 0.0417335, 0.999129)
+bones/5/rotation = Quaternion(-0.0563413, -0.704859, -0.0563413, 0.704859)
+bones/12/rotation = Quaternion(0.629099, 0.582192, 0.346461, 0.38112)
+bones/13/rotation = Quaternion(-0.250735, -0.0074594, -0.041013, 0.967158)
+bones/14/rotation = Quaternion(0.0435622, 0.00161912, 0.0455214, 0.998012)
+bones/15/rotation = Quaternion(-0.344844, 0.0822262, 0.00228344, 0.935049)
+bones/16/rotation = Quaternion(0.0241836, 0.118288, 0.314346, 0.941599)
+bones/17/rotation = Quaternion(-0.11784, -0.0399429, -0.141636, 0.982068)
+bones/20/rotation = Quaternion(0.374235, 0.00232108, 0.00706205, 0.927304)
+bones/21/rotation = Quaternion(-0.0107415, -0.00115372, -0.0983306, 0.995095)
+bones/22/rotation = Quaternion(-0.0257175, -0.00691145, -0.0570051, 0.998019)
+bones/25/rotation = Quaternion(0.269966, 0.0148115, -0.0434529, 0.961775)
+bones/26/rotation = Quaternion(0.019492, 0.00263746, -0.0212689, 0.99958)
+bones/27/rotation = Quaternion(-0.0714787, -0.0181502, -0.0925118, 0.992977)
+bones/30/rotation = Quaternion(-0.346447, 0.381133, -0.629091, 0.5822)
+bones/31/rotation = Quaternion(-0.250735, 0.0074534, 0.0409891, 0.967159)
+bones/32/rotation = Quaternion(0.0435622, -0.00161918, -0.045519, 0.998012)
+bones/33/rotation = Quaternion(-0.344844, -0.0822758, -0.00229158, 0.935045)
+bones/34/rotation = Quaternion(0.0241824, -0.118275, -0.314439, 0.94157)
+bones/35/rotation = Quaternion(-0.117845, 0.0399276, 0.141759, 0.98205)
+bones/38/rotation = Quaternion(0.374235, -0.00232992, -0.00703907, 0.927304)
+bones/39/rotation = Quaternion(-0.0107414, 0.00115467, 0.098384, 0.99509)
+bones/40/rotation = Quaternion(-0.0257178, 0.00690995, 0.0567923, 0.998031)
+bones/43/rotation = Quaternion(0.269966, -0.0148115, 0.0434545, 0.961775)
+bones/44/rotation = Quaternion(0.0194911, -0.00263704, 0.0212623, 0.999581)
+bones/45/rotation = Quaternion(-0.0714773, 0.0181502, 0.0925496, 0.992973)
+bones/48/rotation = Quaternion(0.70458, -0.0602443, 0.70496, 0.0544982)
+bones/49/rotation = Quaternion(-0.0277101, 0.644215, -0.00747715, 0.764306)
+bones/50/rotation = Quaternion(-0.514627, 0.85299, 0.0580721, -0.0647751)
+bones/51/rotation = Quaternion(-1.59122e-06, 1.77715e-06, -0.270015, 0.962856)
+bones/54/rotation = Quaternion(0.704958, -0.0545178, 0.704579, 0.0602613)
+bones/55/rotation = Quaternion(-0.0276584, -0.644219, 0.0074318, 0.764305)
+bones/56/rotation = Quaternion(0.514593, 0.85301, 0.0580683, 0.0647743)
+bones/57/rotation = Quaternion(1.73256e-07, 5.20804e-07, 0.270015, 0.962856)
+bones/67/rotation = Quaternion(3.97539e-17, 1, 0, -1.33158e-07)
+
+[node name="Head" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="1"]
+transform = Transform3D(1, -1.67142e-06, 4.03553e-07, 1.66249e-06, 0.999999, -2.5481e-06, -4.02392e-07, 2.563e-06, 1, -9.37949e-07, 1.56911, -0.00483836)
+bone_name = "head"
+bone_idx = 5
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/Head" index="0" instance=ExtResource("3_guj4q")]
+weak_spot = true
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/Head/HitBox" index="0"]
+transform = Transform3D(1, 2.44721e-14, 0, -2.3054e-14, 1, 0, 0, -9.43601e-11, 1, -0.00134278, 0.0800171, 0.00109864)
+shape = SubResource("BoxShape3D_e0rn1")
+
+[node name="Spine" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="2"]
+transform = Transform3D(2.67794e-07, -1.55193e-06, 1, 0.0496975, 0.998764, 1.53662e-06, -0.998764, 0.0496976, 3.43477e-07, 7.72203e-10, 0.979042, -0.0155287)
+bone_name = "spine_01"
+bone_idx = 1
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/Spine" index="0" instance=ExtResource("3_guj4q")]
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/Spine/HitBox" index="0"]
+transform = Transform3D(1.00001, -8.19564e-08, 0, 1.49012e-08, 1.00001, 2.66454e-14, 2.31637e-11, 6.03961e-14, 1, -0.00540162, 0.148591, -0.00497441)
+shape = SubResource("BoxShape3D_an7no")
+
+[node name="UpperArmL" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="3"]
+transform = Transform3D(-0.0909989, 0.995681, 0.018368, 0.995849, 0.0910107, 0.000190512, -0.00148202, 0.0183094, -0.999831, 0.191, 1.39264, -0.0484219)
+bone_name = "UpperArm_L"
+bone_idx = 13
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/UpperArmL" index="0" instance=ExtResource("3_guj4q")]
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/UpperArmL/HitBox" index="0"]
+transform = Transform3D(1, -1.35533e-08, 3.49246e-10, 1.40062e-09, 1, 0, 0, 0, 1, -0.0181679, 0.0653858, 0.00122431)
+shape = SubResource("CapsuleShape3D_guj4q")
+
+[node name="UpperArmR" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="4"]
+transform = Transform3D(-0.0909902, -0.995682, -0.0183679, -0.995849, 0.091002, 0.000190449, 0.00148179, 0.0183089, -0.999831, -0.191001, 1.39265, -0.0484219)
+bone_name = "UpperArm_R"
+bone_idx = 31
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/UpperArmR" index="0" instance=ExtResource("3_guj4q")]
+transform = Transform3D(1, 3.4961e-09, 2.32831e-10, -5.60249e-09, 1, -1.86265e-09, 1.16415e-10, 1.86265e-09, 1, 0.0481825, -0.00599888, -3.8445e-05)
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/UpperArmR/HitBox" index="0"]
+transform = Transform3D(1, -1.13923e-08, 3.49246e-10, 1.83172e-09, 1, 3.72529e-09, -1.16415e-10, -3.72529e-09, 1, -0.0150422, 0.0995889, 0.00185527)
+shape = SubResource("CapsuleShape3D_guj4q")
+
+[node name="LowerArmL" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="5"]
+transform = Transform3D(2.07195e-06, 0.997631, -0.0687857, 0.999998, -3.94499e-05, -0.000542336, -0.00054376, -0.0687854, -0.997631, 0.529166, 1.4221, -0.0436401)
+bone_name = "lowerarm_l"
+bone_idx = 14
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/LowerArmL" index="0" instance=ExtResource("3_guj4q")]
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/LowerArmL/HitBox" index="0"]
+transform = Transform3D(1, 7.27596e-12, 1.16415e-10, 0, 1, 0, 0, 1.49012e-08, 1, -0.0225384, 0.0618885, -0.00425486)
+shape = SubResource("CapsuleShape3D_an7no")
+
+[node name="LowerArmR" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="6"]
+transform = Transform3D(5.96981e-06, -0.997631, 0.0687858, -0.999998, -4.33074e-05, -0.000541727, 0.000543335, -0.0687858, -0.997631, -0.529168, 1.4221, -0.0436404)
+bone_name = "lowerarm_r"
+bone_idx = 32
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/LowerArmR" index="0" instance=ExtResource("3_guj4q")]
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/LowerArmR/HitBox" index="0"]
+transform = Transform3D(1, 7.27596e-12, 1.16415e-10, 0, 1, 0, 0, 1.49012e-08, 1, -0.0225384, 0.0618885, -0.00425486)
+shape = SubResource("CapsuleShape3D_an7no")
+
+[node name="ThighR" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="7"]
+transform = Transform3D(-0.999975, 0.00814291, 0.000123261, -0.00814387, -0.999889, -0.0124766, 2.17087e-05, -0.0124773, 0.999922, -0.0989671, 0.831558, -0.0204691)
+bone_name = "Thigh_R"
+bone_idx = 48
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/ThighR" index="0" instance=ExtResource("3_guj4q")]
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/ThighR/HitBox" index="0"]
+transform = Transform3D(1, -3.50695e-10, -5.45697e-12, 1.72733e-09, 1, 0, 1.81899e-11, 0, 1, 0.00129493, 0.159392, -0.023487)
+shape = SubResource("CapsuleShape3D_huhvp")
+
+[node name="ThighL" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="8"]
+transform = Transform3D(-0.999963, -0.00813919, -0.000124575, 0.00814008, -0.999888, -0.0125287, -2.27162e-05, -0.0125294, 0.999921, 0.0989671, 0.831558, -0.0204691)
+bone_name = "Thigh_L"
+bone_idx = 54
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/ThighL" index="0" instance=ExtResource("3_guj4q")]
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/ThighL/HitBox" index="0"]
+transform = Transform3D(1, -3.50695e-10, -5.45697e-12, 1.72733e-09, 1, 0, 1.81899e-11, 0, 1, 0.00129493, 0.159392, -0.023487)
+shape = SubResource("CapsuleShape3D_huhvp")
+
+[node name="CalfL" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="9"]
+transform = Transform3D(-0.170352, -0.0323943, 0.984846, -0.0579412, -0.9974, -0.0428294, 0.983678, -0.0643596, 0.168033, 0.0957171, 0.432293, -0.0254722)
+bone_name = "calf_l"
+bone_idx = 55
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/CalfL" index="0" instance=ExtResource("3_guj4q")]
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/CalfL/HitBox" index="0"]
+transform = Transform3D(1, 0, 0, 7.45058e-09, 1, 0, 1.49012e-08, -1.86265e-09, 1, -0.012192, 0.207003, 0.00470015)
+shape = SubResource("CapsuleShape3D_l55f8")
+
+[node name="CalfR" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="10"]
+transform = Transform3D(-0.170363, 0.0323953, -0.984857, 0.0580249, -0.997395, -0.0428452, -0.983672, -0.064445, 0.168038, -0.0957155, 0.432293, -0.0254514)
+bone_name = "calf_r"
+bone_idx = 49
+
+[node name="HitBox" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/CalfR" index="0" instance=ExtResource("3_guj4q")]
+
+[node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/CalfR/HitBox" index="0"]
+transform = Transform3D(1, 0, 0, 7.45058e-09, 1, 0, 1.49012e-08, -1.86265e-09, 1, -0.012192, 0.207003, 0.00470015)
+shape = SubResource("CapsuleShape3D_l55f8")
+
+[editable path="Graphics/Zombie_Businessman"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/Head/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/Spine/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/UpperArmL/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/UpperArmR/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/LowerArmL/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/LowerArmR/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/ThighR/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/ThighL/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/CalfL/HitBox"]
+[editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/CalfR/HitBox"]

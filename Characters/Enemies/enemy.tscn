@@ -1,13 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5cfpv5ky73ss"]
+[gd_scene load_steps=4 format=3 uid="uid://c5cfpv5ky73ss"]
+
+[ext_resource type="PackedScene" uid="uid://cin2kli57dv7k" path="res://Characters/health_manager.tscn" id="1_c7bj6"]
+[ext_resource type="Script" uid="uid://36v6irt7dpdg" path="res://Characters/Enemies/enemy.gd" id="1_o8ynm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xa46"]
+radius = 0.25
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 3
+script = ExtResource("1_o8ynm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_1xa46")
 
 [node name="Graphics" type="Node3D" parent="."]
+
+[node name="HealthManager" parent="." instance=ExtResource("1_c7bj6")]
+verbose = true
