@@ -31,50 +31,50 @@ height = 0.438492
 [node name="Zombie_Businessman" parent="Graphics" index="0" instance=ExtResource("2_e0rn1")]
 
 [node name="Root" parent="Graphics/Zombie_Businessman" index="0"]
-transform = Transform3D(1, 7.87208e-07, 2.32095e-08, -7.87208e-07, 1, -4.37114e-08, -2.32096e-08, 4.37114e-08, 1, -6.36331e-07, 0.00293549, 0.0179293)
+transform = Transform3D(0.945901, -0.00535529, -0.324413, -0.0605005, 0.979416, -0.192571, 0.318767, 0.20178, 0.926106, 0.00347505, -0.0668092, -0.171374)
 
 [node name="Skeleton3D" parent="Graphics/Zombie_Businessman/Root" index="0"]
-bones/1/rotation = Quaternion(0.0996796, 0.99502, 7.62459e-07, 2.10207e-07)
-bones/2/rotation = Quaternion(0.0980037, 0.995186, -2.97419e-08, -1.36731e-07)
-bones/3/rotation = Quaternion(0.111091, 0.99381, -1.28877e-08, 1.32547e-07)
-bones/4/rotation = Quaternion(-7.67492e-10, 2.81612e-07, 0.0417335, 0.999129)
-bones/5/rotation = Quaternion(-0.0563413, -0.704859, -0.0563413, 0.704859)
-bones/12/rotation = Quaternion(0.629099, 0.582192, 0.346461, 0.38112)
-bones/13/rotation = Quaternion(-0.250735, -0.0074594, -0.041013, 0.967158)
-bones/14/rotation = Quaternion(0.0435622, 0.00161912, 0.0455214, 0.998012)
-bones/15/rotation = Quaternion(-0.344844, 0.0822262, 0.00228344, 0.935049)
-bones/16/rotation = Quaternion(0.0241836, 0.118288, 0.314346, 0.941599)
-bones/17/rotation = Quaternion(-0.11784, -0.0399429, -0.141636, 0.982068)
-bones/20/rotation = Quaternion(0.374235, 0.00232108, 0.00706205, 0.927304)
-bones/21/rotation = Quaternion(-0.0107415, -0.00115372, -0.0983306, 0.995095)
-bones/22/rotation = Quaternion(-0.0257175, -0.00691145, -0.0570051, 0.998019)
-bones/25/rotation = Quaternion(0.269966, 0.0148115, -0.0434529, 0.961775)
-bones/26/rotation = Quaternion(0.019492, 0.00263746, -0.0212689, 0.99958)
-bones/27/rotation = Quaternion(-0.0714787, -0.0181502, -0.0925118, 0.992977)
-bones/30/rotation = Quaternion(-0.346447, 0.381133, -0.629091, 0.5822)
-bones/31/rotation = Quaternion(-0.250735, 0.0074534, 0.0409891, 0.967159)
-bones/32/rotation = Quaternion(0.0435622, -0.00161918, -0.045519, 0.998012)
-bones/33/rotation = Quaternion(-0.344844, -0.0822758, -0.00229158, 0.935045)
-bones/34/rotation = Quaternion(0.0241824, -0.118275, -0.314439, 0.94157)
-bones/35/rotation = Quaternion(-0.117845, 0.0399276, 0.141759, 0.98205)
-bones/38/rotation = Quaternion(0.374235, -0.00232992, -0.00703907, 0.927304)
-bones/39/rotation = Quaternion(-0.0107414, 0.00115467, 0.098384, 0.99509)
-bones/40/rotation = Quaternion(-0.0257178, 0.00690995, 0.0567923, 0.998031)
-bones/43/rotation = Quaternion(0.269966, -0.0148115, 0.0434545, 0.961775)
-bones/44/rotation = Quaternion(0.0194911, -0.00263704, 0.0212623, 0.999581)
-bones/45/rotation = Quaternion(-0.0714773, 0.0181502, 0.0925496, 0.992973)
-bones/48/rotation = Quaternion(0.70458, -0.0602443, 0.70496, 0.0544982)
-bones/49/rotation = Quaternion(-0.0277101, 0.644215, -0.00747715, 0.764306)
-bones/50/rotation = Quaternion(-0.514627, 0.85299, 0.0580721, -0.0647751)
-bones/51/rotation = Quaternion(-1.59122e-06, 1.77715e-06, -0.270015, 0.962856)
-bones/54/rotation = Quaternion(0.704958, -0.0545178, 0.704579, 0.0602613)
-bones/55/rotation = Quaternion(-0.0276584, -0.644219, 0.0074318, 0.764305)
-bones/56/rotation = Quaternion(0.514593, 0.85301, 0.0580683, 0.0647743)
-bones/57/rotation = Quaternion(1.73256e-07, 5.20804e-07, 0.270015, 0.962856)
+bones/1/rotation = Quaternion(0.120362, 0.992584, 0.0158786, 0.00617766)
+bones/2/rotation = Quaternion(0.0330923, 0.999317, -0.0116483, 0.0116326)
+bones/3/rotation = Quaternion(0.175544, 0.984341, 0.012155, 0.0104961)
+bones/4/rotation = Quaternion(0.0254442, 0.0253126, -0.00973614, 0.999308)
+bones/5/rotation = Quaternion(-0.075185, -0.682004, -0.109782, 0.719142)
+bones/12/rotation = Quaternion(0.67827, 0.555676, 0.383526, 0.289969)
+bones/13/rotation = Quaternion(-0.396774, 0.147679, 0.417126, 0.804218)
+bones/14/rotation = Quaternion(-0.669602, -0.000201943, 0.000873859, 0.742719)
+bones/15/rotation = Quaternion(-0.175425, 0.255914, -0.200036, 0.929365)
+bones/16/rotation = Quaternion(-0.0769526, 0.0786731, 0.192348, 0.975137)
+bones/17/rotation = Quaternion(-0.00332091, -0.0234582, 0.0466518, 0.99863)
+bones/20/rotation = Quaternion(0.0691814, -0.103068, 0.0927656, 0.98792)
+bones/21/rotation = Quaternion(0.00792778, -0.00430311, 0.17848, 0.983902)
+bones/22/rotation = Quaternion(0.0177632, -0.00800742, 0.344246, 0.938677)
+bones/25/rotation = Quaternion(0.138863, -0.00212934, 0.00531391, 0.990295)
+bones/26/rotation = Quaternion(0.0111225, -0.00800757, 0.455346, 0.890209)
+bones/27/rotation = Quaternion(0.00673584, -0.0235228, 0.155374, 0.987553)
+bones/30/rotation = Quaternion(-0.433794, 0.340364, -0.634821, 0.541274)
+bones/31/rotation = Quaternion(-0.401082, -0.0868227, -0.489502, 0.769404)
+bones/32/rotation = Quaternion(-0.69529, 0.000295439, -0.000794736, 0.718729)
+bones/33/rotation = Quaternion(-0.215917, -0.249714, -0.0592233, 0.94208)
+bones/34/rotation = Quaternion(-0.284249, -0.0926022, -0.000435548, 0.954268)
+bones/35/rotation = Quaternion(0.393111, 0.0956069, -0.0164782, 0.914359)
+bones/38/rotation = Quaternion(0.202232, -0.038758, 0.168849, 0.963893)
+bones/39/rotation = Quaternion(0.0163709, 0.00414059, -0.38126, 0.924314)
+bones/40/rotation = Quaternion(0.0037276, 0.00849771, -0.0719591, 0.997364)
+bones/43/rotation = Quaternion(0.195672, -0.0229972, 0.116005, 0.973512)
+bones/44/rotation = Quaternion(0.0107497, 0.00746526, -0.500081, 0.86588)
+bones/45/rotation = Quaternion(0.0162399, 0.0220559, -0.379794, 0.924665)
+bones/48/rotation = Quaternion(0.588889, 0.241536, 0.767673, -0.0744913)
+bones/49/rotation = Quaternion(-0.280475, 0.644982, -0.27103, 0.657171)
+bones/50/rotation = Quaternion(-0.606192, 0.779043, -0.0753671, -0.141218)
+bones/51/rotation = Quaternion(-1.1104e-06, 2.29432e-06, -0.270016, 0.962856)
+bones/54/rotation = Quaternion(0.752883, 0.0693702, 0.564776, -0.33073)
+bones/55/rotation = Quaternion(-0.286492, -0.633808, 0.273254, 0.664486)
+bones/56/rotation = Quaternion(0.574205, 0.798603, -0.0944957, 0.153595)
+bones/57/rotation = Quaternion(-0.00019693, 0.000692699, 0.274281, 0.961649)
 bones/67/rotation = Quaternion(3.97539e-17, 1, 0, -1.33158e-07)
 
 [node name="Head" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="1"]
-transform = Transform3D(1, -1.67142e-06, 4.03553e-07, 1.66249e-06, 0.999999, -2.5481e-06, -4.02392e-07, 2.563e-06, 1, -9.37949e-07, 1.56911, -0.00483836)
+transform = Transform3D(0.997767, -0.00215599, 0.0667433, 0.00839622, 0.995596, -0.0933564, -0.0662481, 0.0937082, 0.993393, -0.0308697, 1.55583, 0.0890372)
 bone_name = "head"
 bone_idx = 5
 
@@ -86,7 +86,7 @@ transform = Transform3D(1, 2.44721e-14, 0, -2.3054e-14, 1, 0, 0, -9.43601e-11, 1
 shape = SubResource("BoxShape3D_e0rn1")
 
 [node name="Spine" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="2"]
-transform = Transform3D(2.67794e-07, -1.55193e-06, 1, 0.0496975, 0.998764, 1.53662e-06, -0.998764, 0.0496976, 3.43477e-07, 7.72203e-10, 0.979042, -0.0155287)
+transform = Transform3D(0.00844132, -0.0330088, 0.999419, 0.0913803, 0.995298, 0.0321009, -0.99578, 0.0910564, 0.011418, 7.72203e-10, 0.979042, -0.0155287)
 bone_name = "spine_01"
 bone_idx = 1
 
@@ -97,7 +97,7 @@ transform = Transform3D(1.00001, -8.19564e-08, 0, 1.49012e-08, 1.00001, 2.66454e
 shape = SubResource("BoxShape3D_an7no")
 
 [node name="UpperArmL" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="3"]
-transform = Transform3D(-0.0909989, 0.995681, 0.018368, 0.995849, 0.0910107, 0.000190512, -0.00148202, 0.0183094, -0.999831, 0.191, 1.39264, -0.0484219)
+transform = Transform3D(0.830486, 0.463753, 0.308588, 0.438751, -0.885903, 0.150569, 0.343206, 0.0103485, -0.939202, 0.164124, 1.38982, 0.00130333)
 bone_name = "UpperArm_L"
 bone_idx = 13
 
@@ -108,7 +108,7 @@ transform = Transform3D(1, -1.35533e-08, 3.49246e-10, 1.40062e-09, 1, 0, 0, 0, 1
 shape = SubResource("CapsuleShape3D_guj4q")
 
 [node name="UpperArmR" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="4"]
-transform = Transform3D(-0.0909902, -0.995682, -0.0183679, -0.995849, 0.091002, 0.000190449, 0.00148179, 0.0183089, -0.999831, -0.191001, 1.39265, -0.0484219)
+transform = Transform3D(0.948632, -0.171497, -0.265869, -0.186122, -0.982048, -0.0306276, -0.255844, 0.0785388, -0.963522, -0.211202, 1.35926, -0.00315023)
 bone_name = "UpperArm_R"
 bone_idx = 31
 
@@ -120,7 +120,7 @@ transform = Transform3D(1, -1.13923e-08, 3.49246e-10, 1.83172e-09, 1, 3.72529e-0
 shape = SubResource("CapsuleShape3D_guj4q")
 
 [node name="LowerArmL" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="5"]
-transform = Transform3D(2.07195e-06, 0.997631, -0.0687857, 0.999998, -3.94499e-05, -0.000542336, -0.00054376, -0.0687854, -0.997631, 0.529166, 1.4221, -0.0436401)
+transform = Transform3D(0.830943, -0.259903, 0.491918, 0.437229, -0.241696, -0.866262, 0.344039, 0.934897, -0.0871982, 0.320795, 1.08866, 0.00297012)
 bone_name = "lowerarm_l"
 bone_idx = 14
 
@@ -131,7 +131,7 @@ transform = Transform3D(1, 7.27596e-12, 1.16415e-10, 0, 1, 0, 0, 1.49012e-08, 1,
 shape = SubResource("CapsuleShape3D_an7no")
 
 [node name="LowerArmR" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="6"]
-transform = Transform3D(5.96981e-06, -0.997631, 0.0687858, -0.999998, -4.33074e-05, -0.000541727, 0.000543335, -0.0687858, -0.997631, -0.529168, 1.4221, -0.0436404)
+transform = Transform3D(0.948716, 0.260733, -0.178764, -0.184617, -0.00207326, -0.982807, -0.256621, 0.965408, 0.0461693, -0.268429, 1.02556, 0.0217574)
 bone_name = "lowerarm_r"
 bone_idx = 32
 
@@ -142,7 +142,7 @@ transform = Transform3D(1, 7.27596e-12, 1.16415e-10, 0, 1, 0, 0, 1.49012e-08, 1,
 shape = SubResource("CapsuleShape3D_an7no")
 
 [node name="ThighR" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="7"]
-transform = Transform3D(-0.999975, 0.00814291, 0.000123261, -0.00814387, -0.999889, -0.0124766, 2.17087e-05, -0.0124773, 0.999922, -0.0989671, 0.831558, -0.0204691)
+transform = Transform3D(-0.94014, -0.283107, -0.18974, 0.124073, -0.802839, 0.583141, -0.317425, 0.524689, 0.789902, -0.0989671, 0.831558, -0.0204691)
 bone_name = "Thigh_R"
 bone_idx = 48
 
@@ -153,7 +153,7 @@ transform = Transform3D(1, -3.50695e-10, -5.45697e-12, 1.72733e-09, 1, 0, 1.8189
 shape = SubResource("CapsuleShape3D_huhvp")
 
 [node name="ThighL" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="8"]
-transform = Transform3D(-0.999963, -0.00813919, -0.000124575, 0.00814008, -0.999888, -0.0125287, -2.27162e-05, -0.0125294, 0.999921, 0.0989671, 0.831558, -0.0204691)
+transform = Transform3D(-0.896303, 0.419645, 0.143291, -0.213442, -0.691526, 0.690096, 0.388684, 0.587953, 0.70939, 0.0989671, 0.831558, -0.0204691)
 bone_name = "Thigh_L"
 bone_idx = 54
 
@@ -164,7 +164,7 @@ transform = Transform3D(1, -3.50695e-10, -5.45697e-12, 1.72733e-09, 1, 0, 1.8189
 shape = SubResource("CapsuleShape3D_huhvp")
 
 [node name="CalfL" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="9"]
-transform = Transform3D(-0.170352, -0.0323943, 0.984846, -0.0579412, -0.9974, -0.0428294, 0.983678, -0.0643596, 0.168033, 0.0957171, 0.432293, -0.0254722)
+transform = Transform3D(0.360712, 0.183887, 0.914366, -0.0391146, -0.976525, 0.211816, 0.931856, -0.112171, -0.345051, 0.266535, 0.555425, 0.214306)
 bone_name = "calf_l"
 bone_idx = 55
 
@@ -175,7 +175,7 @@ transform = Transform3D(1, 0, 0, 7.45058e-09, 1, 0, 1.49012e-08, -1.86265e-09, 1
 shape = SubResource("CapsuleShape3D_l55f8")
 
 [node name="CalfR" type="BoneAttachment3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D" index="10"]
-transform = Transform3D(-0.170363, 0.0323953, -0.984857, 0.0580249, -0.997395, -0.0428452, -0.983672, -0.064445, 0.168038, -0.0957155, 0.432293, -0.0254514)
+transform = Transform3D(0.315461, -0.0554479, -0.947325, 0.17339, -0.978116, 0.114992, -0.932963, -0.200531, -0.298946, -0.212014, 0.510977, 0.189044)
 bone_name = "calf_r"
 bone_idx = 49
 
@@ -184,6 +184,9 @@ bone_idx = 49
 [node name="CollisionShape3D" parent="Graphics/Zombie_Businessman/Root/Skeleton3D/CalfR/HitBox" index="0"]
 transform = Transform3D(1, 0, 0, 7.45058e-09, 1, 0, 1.49012e-08, -1.86265e-09, 1, -0.012192, 0.207003, 0.00470015)
 shape = SubResource("CapsuleShape3D_l55f8")
+
+[node name="AnimationPlayer" parent="Graphics/Zombie_Businessman" index="1"]
+autoplay = "Root|Idle"
 
 [editable path="Graphics/Zombie_Businessman"]
 [editable path="Graphics/Zombie_Businessman/Root/Skeleton3D/Head/HitBox"]

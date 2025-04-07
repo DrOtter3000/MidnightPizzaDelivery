@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bhspftsgcp0q8"]
+
+[ext_resource type="Texture2D" uid="uid://d4dpyq3h5w7uw" path="res://Materials/Textures/FantasyRivals/FantasyRivals_Texture_01_D.png" id="1_i6cht"]
+[ext_resource type="Texture2D" uid="uid://l74nbqa1q20r" path="res://Materials/Textures/FantasyRivals/FantasyRivals_Texture_01_Emissive.png" id="2_nk38v"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_i6cht")
+roughness = 0.0
+emission_enabled = true
+emission_texture = ExtResource("2_nk38v")

@@ -3,4 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bvmq10843ds2b" path="res://Materials/Textures/Prototype/Textures/PolygonPrototype_Texture_02.png" id="1_57h7n"]
 
 [resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_57h7n")
+roughness = 0.0

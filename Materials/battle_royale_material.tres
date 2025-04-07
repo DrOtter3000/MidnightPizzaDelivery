@@ -1,7 +1,12 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d33sb3eombsni"]
 
-[ext_resource type="Texture2D" uid="uid://1wejpr0oh0wu" path="res://Assets/PolygonPacks/Polygon_Battle_Royale_Source/Textures/Weapons/Wep_Skin_01.png" id="1_lf8w0"]
+[ext_resource type="Texture2D" uid="uid://1wejpr0oh0wu" path="res://Materials/Textures/BattleRoyale/Textures/Weapons/Wep_Skin_01.png" id="1_lf8w0"]
 
 [resource]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 2
 albedo_texture = ExtResource("1_lf8w0")
+roughness = 0.0

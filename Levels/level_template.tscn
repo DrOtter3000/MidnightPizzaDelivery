@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dps74tw4e0l27"]
+[gd_scene load_steps=14 format=4 uid="uid://dps74tw4e0l27"]
 
 [ext_resource type="PackedScene" uid="uid://lnx7yyjl7iae" path="res://Assets/Ground/Prototype/SM_Buildings_Floor_5x5_01.fbx" id="1_gbce7"]
 [ext_resource type="PackedScene" uid="uid://b04mao8a63s5n" path="res://Assets/Environment/Prototype/SM_Buildings_Block_1x1_01.fbx" id="2_s7a6p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://c0x4sfufonbht" path="res://Materials/prototype_material.tres" id="3_rbi8j"]
 [ext_resource type="Script" uid="uid://cit6lm4iowo0m" path="res://Characters/health_manager.gd" id="4_rshia"]
 [ext_resource type="PackedScene" uid="uid://uru0j5mfroai" path="res://Characters/Enemies/Zombie/zombie.tscn" id="6_rshia"]
+[ext_resource type="PackedScene" uid="uid://jny52ktxc2bk" path="res://Characters/Enemies/Anubis/anubis.tscn" id="7_02uie"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nsw7g"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -286,3 +287,6 @@ transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 0, 0)
 
 [node name="Zombie" parent="." instance=ExtResource("6_rshia")]
 transform = Transform3D(-0.945524, 0, -0.325552, 0, 1, 0, 0.325552, 0, -0.945524, 0, 0, 7.77056)
+
+[node name="Anubis" parent="." instance=ExtResource("7_02uie")]
+transform = Transform3D(-0.67185, 0, -0.740687, 0, 1, 0, 0.740687, 0, -0.67185, 5.05524, 0, 7.65363)

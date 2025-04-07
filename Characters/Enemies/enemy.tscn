@@ -18,4 +18,3 @@ shape = SubResource("CapsuleShape3D_1xa46")
 [node name="Graphics" type="Node3D" parent="."]
 
 [node name="HealthManager" parent="." instance=ExtResource("1_c7bj6")]
-verbose = true
