@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5cfpv5ky73ss"]
+[gd_scene load_steps=7 format=3 uid="uid://c5cfpv5ky73ss"]
 
 [ext_resource type="PackedScene" uid="uid://cin2kli57dv7k" path="res://Characters/health_manager.tscn" id="1_c7bj6"]
 [ext_resource type="Script" uid="uid://36v6irt7dpdg" path="res://Characters/Enemies/enemy.gd" id="1_o8ynm"]
 [ext_resource type="PackedScene" uid="uid://crshsjtp7olrl" path="res://Characters/vision_manager.tscn" id="3_oooen"]
+[ext_resource type="PackedScene" uid="uid://gdg6pfjj7c03" path="res://Characters/Enemies/ai_character_mover.tscn" id="4_p6hek"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xa46"]
 radius = 0.25
@@ -18,6 +19,8 @@ script = ExtResource("1_o8ynm")
 [node name="HealthManager" parent="." instance=ExtResource("1_c7bj6")]
 
 [node name="VisionManager" parent="." instance=ExtResource("3_oooen")]
+
+[node name="AICharacterMover" parent="." instance=ExtResource("4_p6hek")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

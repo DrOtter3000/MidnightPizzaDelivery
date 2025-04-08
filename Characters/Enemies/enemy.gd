@@ -4,10 +4,13 @@ class_name Enemy
 @onready var health_manager: Node3D = $HealthManager
 @onready var vision_manager: VisionManager = $VisionManager
 @onready var nearby_enemies_alert_area: Area3D = $NearbyEnemiesAlertArea
+@onready var ai_character_mover: Node3D = $AICharacterMover
 @export var animation_player: AnimationPlayer
 
 enum STATES {IDLE, ATTACK, DEAD}
 var cur_state = STATES.IDLE
+
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 
 func _ready() -> void:
@@ -33,7 +36,9 @@ func process_idle_state(delta):
 
 
 func process_attack_state(delta):
-	pass
+	ai_character_mover.set_facing_dir(player.global_position - global_position)
+	ai_character_mover.move_to_point(player.global_position)
+	animation_player.play("Root|Walk")
 
 
 func hurt(damage_data: DamageData):
@@ -63,4 +68,5 @@ func set_state(state: STATES):
 		STATES.DEAD:
 			animation_player.play("Root|Die")
 			collision_layer = 0
-			collision_mask = 0
+			collision_mask = 1
+			ai_character_mover.stop_moving()

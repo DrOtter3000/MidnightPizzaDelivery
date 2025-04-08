@@ -1,4 +1,5 @@
 extends Node3D
+class_name CharacterMover
 
 @export var jump_force := 15.0
 @export var gravity := 50
@@ -38,6 +39,8 @@ func _physics_process(delta: float) -> void:
 
 func set_move_dir(new_move_dir: Vector3):
 	move_dir = new_move_dir
+	move_dir.y = 0.0
+	move_dir = move_dir.normalized()
 
 
 func jump() -> void:

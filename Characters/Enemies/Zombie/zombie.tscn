@@ -29,6 +29,10 @@ height = 0.438492
 [node name="Zombie" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_ngehh")]
 animation_player = NodePath("Graphics/Zombie_Businessman/AnimationPlayer")
 
+[node name="AICharacterMover" parent="." index="2"]
+max_speed = 1.0
+move_accel = 0.5
+
 [node name="Zombie_Businessman" parent="Graphics" index="0" instance=ExtResource("2_e0rn1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
