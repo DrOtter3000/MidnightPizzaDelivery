@@ -2,6 +2,8 @@ extends CharacterBody3D
 class_name Enemy
 
 @onready var health_manager: Node3D = $HealthManager
+@onready var vision_manager: VisionManager = $VisionManager
+@onready var nearby_enemies_alert_area: Area3D = $NearbyEnemiesAlertArea
 @export var animation_player: AnimationPlayer
 
 enum STATES {IDLE, ATTACK, DEAD}
@@ -26,7 +28,8 @@ func _process(delta: float) -> void:
 
 
 func process_idle_state(delta):
-	pass
+	if vision_manager.can_see_player():
+		alert()
 
 
 func process_attack_state(delta):
@@ -37,11 +40,24 @@ func hurt(damage_data: DamageData):
 	health_manager.hurt(damage_data)
 
 
+func alert():
+	if cur_state == STATES.IDLE:
+		set_state(STATES.ATTACK)
+		alert_nearby_enemies()
+
+func alert_nearby_enemies():
+	for b in nearby_enemies_alert_area.get_overlapping_bodies():
+		if b is Enemy:
+			b.alert()
+
+
 func set_state(state: STATES):
 	if cur_state == STATES.DEAD:
 		return
 	cur_state = state
 	match cur_state:
+		STATES.ATTACK:
+			pass
 		STATES.IDLE:
 			animation_player.play("Root|Idle")
 		STATES.DEAD:

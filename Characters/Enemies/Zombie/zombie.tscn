@@ -30,6 +30,7 @@ height = 0.438492
 animation_player = NodePath("Graphics/Zombie_Businessman/AnimationPlayer")
 
 [node name="Zombie_Businessman" parent="Graphics" index="0" instance=ExtResource("2_e0rn1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Root" parent="Graphics/Zombie_Businessman" index="0"]
 transform = Transform3D(0.945901, -0.00535529, -0.324413, -0.0605005, 0.979416, -0.192571, 0.318767, 0.20178, 0.926106, 0.00347505, -0.0668092, -0.171374)

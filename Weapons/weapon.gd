@@ -11,6 +11,7 @@ class_name Weapon
 @export var ammo := 30
 @export var attack_rate := .2
 @export var animation_controlled_attack := false
+@export var silent_weapon := false
 
 var last_attack_time := -9999.9
 
@@ -49,6 +50,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	last_attack_time = cur_time
 	animation_player.stop()
 	animation_player.play("attack")
+	fired.emit()
 	if has_node("Graphics/MuzzleFlash"):
 		$Graphics/MuzzleFlash.flash()
 

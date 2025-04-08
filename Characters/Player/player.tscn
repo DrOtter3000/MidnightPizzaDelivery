@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=52 format=4 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://bfmsxvdg2meab" path="res://Characters/Player/weapon_manager.gd" id="2_bqsbk"]
@@ -513,7 +513,13 @@ _data = {
 &"moving": SubResource("Animation_blwrb")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_blwrb"]
+radius = 15.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hvtal"]
+radius = 40.0
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_6xdwp")
@@ -540,12 +546,12 @@ script = ExtResource("2_bqsbk")
 
 [node name="Machete" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-0.845156, -0.354324, -0.400207, -0.161285, 0.882872, -0.44105, 0.509606, -0.308209, -0.803311, 0.437022, -0.5, -0.660307)
-visible = false
 script = ExtResource("4_va6lm")
 damage = 15
 ammo = -1
 attack_rate = 0.5
 animation_controlled_attack = true
+silent_weapon = true
 
 [node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/Machete" instance=ExtResource("6_u2wkb")]
 transform = Transform3D(1, -4.47035e-08, -5.96046e-08, 2.98023e-08, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
@@ -567,7 +573,6 @@ autoplay = "RESET"
 
 [node name="AssaultRifle" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)
-visible = false
 script = ExtResource("4_va6lm")
 automatic = true
 attack_rate = 0.1
@@ -599,7 +604,6 @@ crosshair_type = 1
 
 [node name="Shotgun" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)
-visible = false
 script = ExtResource("4_va6lm")
 attack_rate = 1.0
 
@@ -707,6 +711,26 @@ crosshair_type = 3
 libraries = {
 &"": SubResource("AnimationLibrary_8fwmd")
 }
+
+[node name="NearbyEnemiesAlertAreaSmall" type="Area3D" parent="Camera3D/WeaponManager"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/WeaponManager/NearbyEnemiesAlertAreaSmall"]
+shape = SubResource("SphereShape3D_blwrb")
+
+[node name="NearbyEnemiesAlertAreaLarge" type="Area3D" parent="Camera3D/WeaponManager"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/WeaponManager/NearbyEnemiesAlertAreaLarge"]
+shape = SubResource("SphereShape3D_hvtal")
+
+[node name="LOSRayCast" type="RayCast3D" parent="Camera3D/WeaponManager"]
+enabled = false
 
 [node name="CharacterMover" parent="." instance=ExtResource("2_j341n")]
 

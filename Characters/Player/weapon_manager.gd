@@ -2,13 +2,20 @@ extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var weapons = $Weapons.get_children()
+
 var weapons_unlocked = []
 var cur_slot := 0
 var cur_weapon = null
 
+@onready var nearby_enemies_alert_area_small: Area3D = $NearbyEnemiesAlertAreaSmall
+@onready var nearby_enemies_alert_area_large: Area3D = $NearbyEnemiesAlertAreaLarge
+@onready var los_ray_cast: RayCast3D = $LOSRayCast
+
 
 func _ready():
 	for weapon in weapons:
+		if !weapon.silent_weapon:
+			weapon.fired.connect(alert_enemies_on_fired)
 		if weapon.has_method("set_bodies_to_exclude"):
 			weapon.set_bodies_to_exclude([get_parent().get_parent()])
 	disable_all_weapons()
@@ -67,3 +74,18 @@ func update_animation(velocity: Vector3, grounded: bool):
 		animation_player.play("RESET", .3)
 	else:
 		animation_player.play("moving", .3)
+
+
+func alert_enemies_on_fired():
+	for enemy in nearby_enemies_alert_area_small.get_overlapping_bodies():
+		if enemy is Enemy:
+			enemy.alert()
+	
+	for enemy in nearby_enemies_alert_area_large.get_overlapping_bodies():
+		if enemy is Enemy:
+			los_ray_cast.enabled = true
+			los_ray_cast.target_position = los_ray_cast.to_local(enemy.vision_manager.global_position)
+			los_ray_cast.force_raycast_update()
+			if !los_ray_cast.is_colliding():
+				enemy.alert()
+			los_ray_cast.enabled = false

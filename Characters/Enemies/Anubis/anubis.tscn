@@ -31,6 +31,7 @@ height = 0.356571
 animation_player = NodePath("Graphics/Anubis/AnimationPlayer")
 
 [node name="Anubis" parent="Graphics" index="0" instance=ExtResource("2_l04gf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Root" parent="Graphics/Anubis" index="0"]
 transform = Transform3D(0.522802, -0.0594911, -0.850376, 0.0684589, 0.99727, -0.0276798, 0.849701, -0.0437448, 0.525447, 0.0340636, -0.0996534, 0.0502303)
