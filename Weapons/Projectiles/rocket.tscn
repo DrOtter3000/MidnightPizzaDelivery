@@ -147,14 +147,14 @@ vertex_color_use_as_albedo = true
 [sub_resource type="Gradient" id="Gradient_eyrsk"]
 offsets = PackedFloat32Array(0.273973, 0.763699)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_nabey"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6nm2q"]
 gradient = SubResource("Gradient_eyrsk")
 
 [sub_resource type="Gradient" id="Gradient_r85m7"]
 offsets = PackedFloat32Array(0.660959, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ypvf4"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nabey"]
 gradient = SubResource("Gradient_r85m7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o4ggl"]
@@ -170,10 +170,10 @@ gravity = Vector3(0, 0.1, 0)
 scale_min = 2.0
 scale_max = 3.0
 color = Color(0.533333, 0.533333, 0.533333, 0.376471)
-color_ramp = SubResource("GradientTexture1D_ypvf4")
-color_initial_ramp = SubResource("GradientTexture1D_nabey")
+color_ramp = SubResource("GradientTexture1D_nabey")
+color_initial_ramp = SubResource("GradientTexture1D_6nm2q")
 
-[sub_resource type="SphereMesh" id="SphereMesh_mae1c"]
+[sub_resource type="SphereMesh" id="SphereMesh_rvk10"]
 radial_segments = 7
 rings = 3
 
@@ -237,4 +237,4 @@ lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_o4ggl")
-draw_pass_1 = SubResource("SphereMesh_mae1c")
+draw_pass_1 = SubResource("SphereMesh_rvk10")

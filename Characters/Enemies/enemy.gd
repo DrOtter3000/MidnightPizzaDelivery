@@ -15,6 +15,7 @@ var cur_state = STATES.IDLE
 
 @export var attack_range := 2.0
 @export var damage := 1.0
+@export var attack_speed_modifier := 1.0
 
 
 
@@ -51,7 +52,7 @@ func process_attack_state(delta):
 	if vec_to_player.length() <= attack_range:
 		ai_character_mover.stop_moving()
 		if !attacking and vision_manager.is_facing_target(player):
-			animation_player.play("Root|Attack")
+			start_attack()
 		elif !attacking:
 			ai_character_mover.set_facing_dir(vec_to_player)
 	elif !attacking:
@@ -89,6 +90,10 @@ func set_state(state: STATES):
 			collision_layer = 0
 			collision_mask = 1
 			ai_character_mover.stop_moving()
+
+
+func start_attack():
+	animation_player.play("Root|Attack", -1, attack_speed_modifier)
 
 
 func do_attack(): # called from animation

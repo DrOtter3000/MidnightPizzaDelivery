@@ -645,7 +645,7 @@ transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 
 script = ExtResource("4_va6lm")
 automatic = true
 damage = 25
-ammo = 5
+ammo = 99999
 attack_rate = 2.0
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/RocketLauncher"]

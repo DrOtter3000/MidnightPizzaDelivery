@@ -1,0 +1,139 @@
+[gd_scene load_steps=20 format=3 uid="uid://csolepwfkpbxg"]
+
+[ext_resource type="PackedScene" uid="uid://krjsm42sremm" path="res://Weapons/Projectiles/projectile.tscn" id="1_ryxtv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifajw"]
+transparency = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.247059, 1, 1, 0.411765)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7ou2k"]
+material = SubResource("StandardMaterial3D_ifajw")
+radius = 0.1
+height = 0.2
+radial_segments = 6
+rings = 5
+
+[sub_resource type="Curve" id="Curve_g715v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cccgl"]
+curve = SubResource("Curve_g715v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5nvyo"]
+angle_min = -360.0
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.5
+gravity = Vector3(0, -1, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_cccgl")
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 10.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_bgs17"]
+material = SubResource("StandardMaterial3D_ifajw")
+radius = 0.01
+height = 0.02
+radial_segments = 5
+rings = 5
+
+[sub_resource type="Curve" id="Curve_degba"]
+_data = [Vector2(0, 0.854322), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_txncq"]
+curve = SubResource("Curve_degba")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4cfkt"]
+gravity = Vector3(0, -0.05, 0)
+scale_curve = SubResource("CurveTexture_txncq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jiok0"]
+transparency = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.247059, 1, 1, 0.0588235)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ythgw"]
+material = SubResource("StandardMaterial3D_jiok0")
+radius = 0.1
+height = 0.2
+radial_segments = 5
+rings = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qs0qt"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Gradient" id="Gradient_0i15a"]
+offsets = PackedFloat32Array(0.273973, 0.763699)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ryxtv"]
+gradient = SubResource("Gradient_0i15a")
+
+[sub_resource type="Gradient" id="Gradient_i6f3t"]
+offsets = PackedFloat32Array(0.660959, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g715v"]
+gradient = SubResource("Gradient_i6f3t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0i15a"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.6
+angle_min = 1.07288e-05
+angle_max = 720.0
+spread = 180.0
+angular_velocity_min = -10.0
+angular_velocity_max = 9.99998
+gravity = Vector3(0, 0.1, 0)
+scale_min = 0.7
+scale_max = 0.8
+color = Color(0.533333, 0.533333, 0.533333, 0.376471)
+color_ramp = SubResource("GradientTexture1D_g715v")
+color_initial_ramp = SubResource("GradientTexture1D_ryxtv")
+
+[sub_resource type="SphereMesh" id="SphereMesh_5nvyo"]
+radial_segments = 7
+rings = 3
+
+[node name="EnergyBall" instance=ExtResource("1_ryxtv")]
+speed = 8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Graphics" index="0"]
+mesh = SubResource("SphereMesh_7ou2k")
+
+[node name="Sparks" type="GPUParticles3D" parent="." index="2"]
+amount = 16
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5nvyo")
+draw_pass_1 = SubResource("SphereMesh_bgs17")
+
+[node name="Trail" type="GPUParticles3D" parent="." index="3"]
+amount = 32
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_4cfkt")
+draw_pass_1 = SubResource("SphereMesh_ythgw")
+
+[node name="ExplosionSmokeParticles" type="GPUParticles3D" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_qs0qt")
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_0i15a")
+draw_pass_1 = SubResource("SphereMesh_5nvyo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]
+light_color = Color(0.333333, 1, 1, 1)
+light_energy = 0.1
+
+[connection signal="hit_something" from="." to="ExplosionSmokeParticles" method="set_emitting" binds= [true]]

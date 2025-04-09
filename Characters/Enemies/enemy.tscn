@@ -24,7 +24,7 @@ script = ExtResource("1_o8ynm")
 [node name="AICharacterMover" parent="." instance=ExtResource("4_p6hek")]
 
 [node name="AttackEmitter" parent="." instance=ExtResource("5_dlowh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.326618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.455383)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
