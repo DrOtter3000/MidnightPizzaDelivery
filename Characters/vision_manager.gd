@@ -5,12 +5,11 @@ class_name VisionManager
 @export var max_sight_range := 10.0
 @export var always_detect_in_range := 2.0
 
-@onready var player = get_tree().get_first_node_in_group("Player")
 @onready var los_ray_cast: RayCast3D = $LOSRayCast
 
 
-func can_see_player():
-	var target_pos = player.global_position + Vector3.UP * 1.5
+func can_see_target(target: Node3D):
+	var target_pos = target.global_position + Vector3.UP * 1.5
 	var dir_to_target = global_position.direction_to(target_pos)
 	var dist_to_target = global_position.distance_to(target_pos)
 	var fwd = -global_transform.basis.z
@@ -32,3 +31,9 @@ func can_see_player():
 	los_ray_cast.enabled = false
 	
 	return has_los
+
+
+func is_facing_target(target: Node3D):
+	var pos = to_local(target.global_position)
+	return pos.z < 0.0 and abs(pos.x) < .5
+	

@@ -524,6 +524,11 @@ collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_6xdwp")
 
+[node name="HealthManager" parent="." instance=ExtResource("3_cue0d")]
+verbose = true
+
+[node name="CharacterMover" parent="." instance=ExtResource("2_j341n")]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ygrrk")
@@ -731,10 +736,5 @@ shape = SubResource("SphereShape3D_hvtal")
 
 [node name="LOSRayCast" type="RayCast3D" parent="Camera3D/WeaponManager"]
 enabled = false
-
-[node name="CharacterMover" parent="." instance=ExtResource("2_j341n")]
-
-[node name="HealthManager" parent="." instance=ExtResource("3_cue0d")]
-verbose = true
 
 [connection signal="moved" from="CharacterMover" to="Camera3D/WeaponManager" method="update_animation"]
