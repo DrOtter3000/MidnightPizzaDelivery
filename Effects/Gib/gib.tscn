@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://1kxobdh3arv0"]
+
+[ext_resource type="Script" uid="uid://c8fk87ao0hlvp" path="res://Effects/Gib/gib.gd" id="1_dhipv"]
+[ext_resource type="PackedScene" uid="uid://bsrb56nrai43e" path="res://Effects/Gib/gib1.glb" id="2_ja3ve"]
+[ext_resource type="PackedScene" uid="uid://bbyipt6nmntju" path="res://Effects/Gib/gib2.glb" id="3_1ulj2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xtkjh"]
+radius = 0.2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axdbx"]
+load_path = "res://.godot/imported/PolygonParticles_Circle_01.png-4c8e53a6167d0afb6ed4f877f23ec82b.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se4yp"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_color = Color(0.435294, 0, 0.054902, 1)
+albedo_texture = SubResource("CompressedTexture2D_axdbx")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6jhnx"]
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+scale_min = 0.03
+scale_max = 0.03
+
+[sub_resource type="QuadMesh" id="QuadMesh_q384t"]
+
+[node name="Gib" type="CharacterBody3D"]
+collision_layer = 12
+script = ExtResource("1_dhipv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_xtkjh")
+
+[node name="Graphics" type="Node3D" parent="."]
+
+[node name="gib1" parent="Graphics" instance=ExtResource("2_ja3ve")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="gib2" parent="Graphics" instance=ExtResource("3_1ulj2")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="BloodSplatParticles" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_se4yp")
+emitting = false
+lifetime = 0.5
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6jhnx")
+draw_pass_1 = SubResource("QuadMesh_q384t")
