@@ -525,6 +525,7 @@ collision_mask = 3
 script = ExtResource("1_6xdwp")
 
 [node name="HealthManager" parent="." instance=ExtResource("3_cue0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929092, 0)
 verbose = true
 
 [node name="CharacterMover" parent="." instance=ExtResource("2_j341n")]
