@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://cknx1v5qgko4f"]
+
+[ext_resource type="Theme" uid="uid://c3myewmhtkyfa" path="res://UI/Themes/default_theme.tres" id="1_sxa8i"]
+[ext_resource type="Script" uid="uid://cflx6ut62ns4h" path="res://UI/Menues/main_menu.gd" id="1_ty48w"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sxa8i")
+script = ExtResource("1_ty48w")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainContainer" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/MainContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="CenterContainer/MainContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/MainContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="OptionsContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="FullscreenButton" type="Button" parent="CenterContainer/OptionsContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="BackButton" type="Button" parent="CenterContainer/OptionsContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -32.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Version 0.0.0(alpha)"
+
+[connection signal="pressed" from="CenterContainer/MainContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/OptionsContainer/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="CenterContainer/OptionsContainer/BackButton" to="." method="_on_back_button_pressed"]
