@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=55 format=4 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://bfmsxvdg2meab" path="res://Characters/Player/weapon_manager.gd" id="2_bqsbk"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dy3daalkykyi2" path="res://Weapons/spray_emitter.tscn" id="11_8k5s7"]
 [ext_resource type="Material" uid="uid://brok2lggeyigt" path="res://Materials/battle_royale_weapons_material.tres" id="14_8k5s7"]
 [ext_resource type="PackedScene" uid="uid://bmv8fxwn24l11" path="res://Weapons/projectile_emitter.tscn" id="15_5elsd"]
+[ext_resource type="Script" uid="uid://dw3771vpqtc4l" path="res://Characters/Player/player_ui.gd" id="19_hvtal"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygrrk"]
 radius = 0.25
@@ -519,6 +520,21 @@ radius = 15.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_hvtal"]
 radius = 40.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blwrb"]
+bg_color = Color(0.435294, 0, 0.054902, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvtal"]
+bg_color = Color(0, 1, 0, 1)
+
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 6
 collision_mask = 3
@@ -737,5 +753,47 @@ shape = SubResource("SphereShape3D_hvtal")
 
 [node name="LOSRayCast" type="RayCast3D" parent="Camera3D/WeaponManager"]
 enabled = false
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+script = ExtResource("19_hvtal")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -119.0
+offset_right = 137.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerUI/MarginContainer"]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerUI/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_blwrb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hvtal")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="AmmoLabel" type="Label" parent="PlayerUI/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 64
+text = "Ammo: 0"
+horizontal_alignment = 1
 
 [connection signal="moved" from="CharacterMover" to="Camera3D/WeaponManager" method="update_animation"]

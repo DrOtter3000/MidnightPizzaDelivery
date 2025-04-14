@@ -17,6 +17,7 @@ var last_attack_time := -9999.9
 
 signal fired
 signal out_of_ammo
+signal ammo_updated(ammo_amt: int)
 
 
 func _ready() -> void:
@@ -51,6 +52,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	animation_player.stop()
 	animation_player.play("attack")
 	fired.emit()
+	ammo_updated.emit(ammo)
 	if has_node("Graphics/MuzzleFlash"):
 		$Graphics/MuzzleFlash.flash()
 
@@ -60,6 +62,8 @@ func set_active(a: bool):
 	visible = a
 	if !a:
 		animation_player.play("RESET")
+	else:
+		ammo_updated.emit(ammo)
 
 
 func actually_attack():
@@ -69,3 +73,8 @@ func actually_attack():
 
 func is_idle() -> bool:
 	return !animation_player.is_playing()
+
+
+func add_ammo(amnt: int):
+	ammo += amnt
+	ammo_updated.emit(ammo)
