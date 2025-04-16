@@ -5,6 +5,11 @@ class_name Weapon
 @onready var bullet_emitter: BulletEmitter = $BulletEmitter
 @onready var fire_point: Node3D = %FirePoint
 
+@onready var equip_sound: AudioStreamPlayer = $EquipSound
+@onready var out_of_ammo_sound: AudioStreamPlayer = $OutOfAmmoSound
+@onready var attack_sound: AudioStreamPlayer = $AttackSound
+
+
 @export var automatic := false
 
 @export var damage := 5
@@ -36,6 +41,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	if ammo == 0:
 		if input_just_pressed:
 			out_of_ammo.emit()
+			out_of_ammo_sound.play_sound()
 		return
 	
 	var cur_time = Time.get_ticks_msec() / 1000.0
@@ -52,6 +58,7 @@ func attack(input_just_pressed: bool, input_held: bool):
 	animation_player.stop()
 	animation_player.play("attack")
 	fired.emit()
+	attack_sound.play_sound()
 	ammo_updated.emit(ammo)
 	if has_node("Graphics/MuzzleFlash"):
 		$Graphics/MuzzleFlash.flash()
@@ -63,6 +70,7 @@ func set_active(a: bool):
 	if !a:
 		animation_player.play("RESET")
 	else:
+		equip_sound.play_sound()
 		ammo_updated.emit(ammo)
 
 

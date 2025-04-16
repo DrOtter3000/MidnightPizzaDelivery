@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=57 format=4 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://bfmsxvdg2meab" path="res://Characters/Player/weapon_manager.gd" id="2_bqsbk"]
@@ -14,8 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://dkaevso373mec" path="res://Weapons/hit_scan_bullet_emitter.tscn" id="7_b71o8"]
 [ext_resource type="PackedScene" uid="uid://cr5qta2c2xt2" path="res://Weapons/crosshair.tscn" id="7_blwrb"]
 [ext_resource type="PackedScene" uid="uid://bt1os3c73hkth" path="res://Effects/Muzzle_Flash/muzzle_flash.tscn" id="7_x58m1"]
+[ext_resource type="AudioStream" uid="uid://deq53kmptj426" path="res://Audio/SFX/Weapons/Melee/whoosh_swish_small_harsh_01.wav" id="10_8fwmd"]
 [ext_resource type="PackedScene" uid="uid://boxmy66512khb" path="res://Weapons/burst_emitter.tscn" id="10_b6jp0"]
 [ext_resource type="PackedScene" uid="uid://dy3daalkykyi2" path="res://Weapons/spray_emitter.tscn" id="11_8k5s7"]
+[ext_resource type="Script" uid="uid://by538u0lhamos" path="res://Scripts/sound_manager.gd" id="11_jec2i"]
 [ext_resource type="Material" uid="uid://brok2lggeyigt" path="res://Materials/battle_royale_weapons_material.tres" id="14_8k5s7"]
 [ext_resource type="PackedScene" uid="uid://bmv8fxwn24l11" path="res://Weapons/projectile_emitter.tscn" id="15_5elsd"]
 [ext_resource type="Script" uid="uid://dw3771vpqtc4l" path="res://Characters/Player/player_ui.gd" id="19_hvtal"]
@@ -593,11 +595,33 @@ autoplay = "RESET"
 
 [node name="Crosshair" parent="Camera3D/WeaponManager/Weapons/Machete" instance=ExtResource("7_blwrb")]
 
+[node name="EquipSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/Machete"]
+stream = ExtResource("10_8fwmd")
+pitch_scale = 0.6
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Melee/whoosh_swish_small_harsh_01.wav"]
+pitch_rate_min = 0.7
+pitch_rate_max = 0.75
+
+[node name="OutOfAmmoSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/Machete"]
+pitch_scale = 0.6
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Melee/whoosh_swish_small_harsh_01.wav"]
+volume_max = 0.0
+volume_min = 0.0
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/Machete"]
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Melee/whoosh_swish_small_harsh_01.wav", "res://Audio/SFX/Weapons/Melee/whoosh_swish_small_harsh_02.wav"]
+
 [node name="AssaultRifle" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)
 script = ExtResource("4_va6lm")
 automatic = true
-attack_rate = 0.1
+attack_rate = 0.075
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
@@ -623,6 +647,29 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
 
 [node name="Crosshair" parent="Camera3D/WeaponManager/Weapons/AssaultRifle" instance=ExtResource("7_blwrb")]
 crosshair_type = 1
+
+[node name="EquipSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
+pitch_scale = 0.6
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Rifle/gun_rifle_grab_pickup_01.wav"]
+pitch_rate_min = 0.7
+pitch_rate_max = 0.75
+
+[node name="OutOfAmmoSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
+pitch_scale = 0.6
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/SMG/gun_submachine_auto_dry_fire_01.wav", "res://Audio/SFX/Weapons/SMG/gun_submachine_auto_dry_fire_02.wav", "res://Audio/SFX/Weapons/SMG/gun_submachine_auto_dry_fire_03.wav"]
+pitch_rate_min = 0.9
+pitch_rate_max = 1.1
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/SMG/gun_submachine_auto_shot_01.wav", "res://Audio/SFX/Weapons/SMG/gun_submachine_auto_shot_02.wav", "res://Audio/SFX/Weapons/SMG/gun_submachine_auto_shot_03.wav"]
+pitch_rate_min = 0.9
+pitch_rate_max = 1.1
 
 [node name="Shotgun" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)
@@ -656,6 +703,30 @@ libraries = {
 
 [node name="Crosshair" parent="Camera3D/WeaponManager/Weapons/Shotgun" instance=ExtResource("7_blwrb")]
 crosshair_type = 2
+
+[node name="EquipSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/Shotgun"]
+stream = ExtResource("10_8fwmd")
+pitch_scale = 0.6
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_pickup_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_pickup_02.wav"]
+pitch_rate_min = 0.7
+pitch_rate_max = 0.75
+
+[node name="OutOfAmmoSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/Shotgun"]
+pitch_scale = 0.6
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_dry_fire_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_dry_fire_02.wav"]
+pitch_rate_min = 0.9
+pitch_rate_max = 1.1
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/Shotgun"]
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_shot_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_shot_02.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_shot_03.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_shot_04.wav"]
+pitch_rate_min = 0.9
+pitch_rate_max = 1.1
 
 [node name="RocketLauncher" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.389918)
@@ -728,6 +799,30 @@ libraries = {
 
 [node name="Crosshair" parent="Camera3D/WeaponManager/Weapons/RocketLauncher" instance=ExtResource("7_blwrb")]
 crosshair_type = 3
+
+[node name="EquipSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/RocketLauncher"]
+stream = ExtResource("10_8fwmd")
+pitch_scale = 0.6
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_pickup_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_pickup_02.wav"]
+pitch_rate_min = 0.7
+pitch_rate_max = 0.75
+
+[node name="OutOfAmmoSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/RocketLauncher"]
+pitch_scale = 0.6
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_dry_fire_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_dry_fire_02.wav"]
+pitch_rate_min = 0.9
+pitch_rate_max = 1.1
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/RocketLauncher"]
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_dry_fire_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_dry_fire_02.wav"]
+pitch_rate_min = 0.9
+pitch_rate_max = 1.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager"]
 libraries = {
