@@ -1,10 +1,11 @@
-[gd_scene load_steps=57 format=4 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=58 format=4 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://bfmsxvdg2meab" path="res://Characters/Player/weapon_manager.gd" id="2_bqsbk"]
 [ext_resource type="PackedScene" uid="uid://bvhx3ml6th441" path="res://Characters/character_mover.tscn" id="2_j341n"]
 [ext_resource type="PackedScene" uid="uid://da5db8excip22" path="res://Assets/Weapons/SM_Wep_Machete_01.fbx" id="3_7vev3"]
 [ext_resource type="PackedScene" uid="uid://cin2kli57dv7k" path="res://Characters/health_manager.tscn" id="3_cue0d"]
+[ext_resource type="Script" uid="uid://cbf053mwu4o7a" path="res://Scripts/sound_manager_3d.gd" id="3_kpgn3"]
 [ext_resource type="PackedScene" uid="uid://v54ge8x7gmh2" path="res://Assets/Weapons/SM_Wep_Rifle_Assault_05.fbx" id="4_klx3t"]
 [ext_resource type="Script" uid="uid://ckqot4jcbqtfl" path="res://Weapons/weapon.gd" id="4_va6lm"]
 [ext_resource type="PackedScene" uid="uid://bn1rvtkf3xav" path="res://Weapons/area_damage_emitter.tscn" id="5_8k5s7"]
@@ -196,6 +197,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -0.2), Vector3(-0.775519, 6.04659e-08, -1.48042e-07), Vector3(-1.44869, 1.08871e-06, -1.23047e-06), Vector3(-1.44869, 1.08871e-06, -1.23047e-06), Vector3(-1.44869, 1.08871e-06, -1.23047e-06), Vector3(-1.44869, 1.08871e-06, -1.23047e-06), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ShotgunPumpSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6jp0"]
@@ -544,7 +559,18 @@ script = ExtResource("1_6xdwp")
 
 [node name="HealthManager" parent="." instance=ExtResource("3_cue0d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929092, 0)
+max_health = 100
 verbose = true
+
+[node name="HurtSound" type="AudioStreamPlayer3D" parent="HealthManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.418286, 0)
+bus = &"SFX"
+script = ExtResource("3_kpgn3")
+
+[node name="DieSound" type="AudioStreamPlayer3D" parent="HealthManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.418286, 0)
+bus = &"SFX"
+script = ExtResource("3_kpgn3")
 
 [node name="CharacterMover" parent="." instance=ExtResource("2_j341n")]
 
@@ -725,6 +751,13 @@ pitch_rate_max = 1.1
 bus = &"SFX"
 script = ExtResource("11_jec2i")
 available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_shot_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_shot_02.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_shot_03.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_shot_04.wav"]
+pitch_rate_min = 0.9
+pitch_rate_max = 1.1
+
+[node name="ShotgunPumpSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/Shotgun"]
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_cock_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_cock_02.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_cock_03.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_cock_04.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_cock_05.wav"]
 pitch_rate_min = 0.9
 pitch_rate_max = 1.1
 

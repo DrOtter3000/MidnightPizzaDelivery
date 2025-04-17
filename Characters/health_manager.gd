@@ -8,7 +8,7 @@ const GIB = preload("res://Effects/Gib/gib.tscn")
 
 @onready var blood_raycast: RayCast3D = $BloodRaycast
 
-@export var max_health := 100
+@export var max_health := 10
 @export var cur_health := max_health
 @export var gib_when_damage_taken := 20
 @export var gib_spawn_amount := 5
@@ -52,14 +52,17 @@ func hurt(damage_data: DamageData):
 	
 	cur_health -= damage_data.amount
 	dead = cur_health <= 0
+	
 	if dead:
 		if verbose:
 			print(str(get_parent().name) + " died")
 		died.emit()
+		$DieSound.play_sound()
 		if dead and damage_taken_this_frame >= gib_when_damage_taken:
 			gib()
 	else:
 		damaged.emit()
+		$HurtSound.play_sound()
 	health_changed.emit(cur_health, max_health)
 	if verbose:
 		print("damaged for %s, health: %s/%s" % [damage_data.amount, cur_health, max_health])

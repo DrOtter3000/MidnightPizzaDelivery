@@ -297,3 +297,17 @@ tracks/40/keys = {
 "method": &"do_attack"
 }]
 }
+tracks/41/type = "method"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("../../AttackSound")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}]
+}
