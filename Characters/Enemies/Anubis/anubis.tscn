@@ -35,6 +35,9 @@ animation_player = NodePath("Graphics/Anubis/AnimationPlayer")
 attack_range = 25.0
 attack_speed_modifier = 1.2
 
+[node name="HealthManager" parent="." index="0"]
+max_health = 30
+
 [node name="HurtSound" parent="HealthManager" index="1"]
 available_sounds = ["res://Audio/SFX/Enemies/Ghost/ghost_witch_voice_hiss_01.wav"]
 pitch_rate_min = 0.5
@@ -206,7 +209,7 @@ bones/67/position = Vector3(0, -1.11022e-16, 6.93889e-18)
 bones/67/rotation = Quaternion(-1.25497e-11, -1.31163e-07, -2.931e-10, 1)
 
 [node name="Head" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="1"]
-transform = Transform3D(0.939842, 0.317179, -0.126868, -0.023211, -0.311233, -0.95005, -0.340821, 0.895842, -0.285147, 0.0864327, 1.52156, 0.183729)
+transform = Transform3D(0.939842, 0.317179, -0.126868, -0.0232111, -0.311233, -0.95005, -0.340821, 0.895842, -0.285147, 0.0864327, 1.52156, 0.183729)
 bone_name = "head"
 bone_idx = 5
 
@@ -218,7 +221,7 @@ transform = Transform3D(0.999965, -3.63602e-09, 1.12529e-07, 3.36603e-08, 0.9633
 shape = SubResource("CapsuleShape3D_i5rcg")
 
 [node name="Spine" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="2"]
-transform = Transform3D(0.000226371, 0.0473435, 0.998879, 0.242544, 0.96905, -0.0459847, -0.97014, 0.242282, -0.0112635, -9.48631e-10, 0.979042, -0.0155288)
+transform = Transform3D(0.000226372, 0.0473435, 0.998879, 0.242544, 0.96905, -0.0459847, -0.97014, 0.242282, -0.0112635, -9.48631e-10, 0.979042, -0.0155288)
 bone_name = "spine_01"
 bone_idx = 1
 
@@ -229,7 +232,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 8.88178e-16, 0, -3.32179e-13, 1, -0.02221
 shape = SubResource("BoxShape3D_c7gab")
 
 [node name="UpperArmL" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="3"]
-transform = Transform3D(0.872554, 0.469225, -0.135936, 0.477693, -0.877776, 0.0363304, -0.102275, -0.0966359, -0.990051, 0.238421, 1.31451, 0.0721077)
+transform = Transform3D(0.872554, 0.469225, -0.135936, 0.477693, -0.877775, 0.0363303, -0.102275, -0.0966357, -0.990051, 0.238421, 1.31451, 0.0721078)
 bone_name = "UpperArm_L"
 bone_idx = 11
 
@@ -240,7 +243,7 @@ transform = Transform3D(0.999724, 0.0235063, -0.000232049, -0.0235063, 0.999724,
 shape = SubResource("CapsuleShape3D_sb5lv")
 
 [node name="UpperArmR" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="4"]
-transform = Transform3D(0.499591, -0.825721, 0.261906, -0.780781, -0.560177, -0.276735, 0.37522, -0.0662365, -0.924567, -0.149871, 1.40726, 0.107818)
+transform = Transform3D(0.499591, -0.825721, 0.261906, -0.780781, -0.560177, -0.276735, 0.37522, -0.0662364, -0.924567, -0.149871, 1.40726, 0.107818)
 bone_name = "UpperArm_R"
 bone_idx = 29
 
@@ -251,7 +254,7 @@ transform = Transform3D(0.999724, 0.0235063, -0.000232049, -0.0235063, 0.999724,
 shape = SubResource("CapsuleShape3D_sb5lv")
 
 [node name="LowerArmL" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="5"]
-transform = Transform3D(0.829944, 0.463856, 0.309889, 0.54992, -0.586986, -0.594168, -0.093708, 0.66354, -0.742249, 0.39625, 1.01589, 0.0380287)
+transform = Transform3D(0.829944, 0.463856, 0.309889, 0.54992, -0.586986, -0.594168, -0.0937081, 0.66354, -0.742249, 0.39625, 1.01589, 0.0380288)
 bone_name = "lowerarm_l"
 bone_idx = 12
 
@@ -262,7 +265,7 @@ transform = Transform3D(1, 1.59872e-14, -8.52651e-14, -1.77636e-14, 1, 0, 8.5265
 shape = SubResource("CapsuleShape3D_ch2kh")
 
 [node name="LowerArmR" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="6"]
-transform = Transform3D(0.562228, 0.121902, -0.817949, -0.762547, 0.459181, -0.455714, 0.320034, 0.879939, 0.351121, -0.429083, 1.21557, 0.0845472)
+transform = Transform3D(0.562228, 0.121903, -0.817949, -0.762547, 0.459181, -0.455713, 0.320034, 0.879939, 0.351121, -0.429083, 1.21557, 0.0845472)
 bone_name = "lowerarm_r"
 bone_idx = 30
 
@@ -273,7 +276,7 @@ transform = Transform3D(0.991325, 0.0571101, -0.118379, -0.0486497, 0.996132, 0.
 shape = SubResource("CapsuleShape3D_ch2kh")
 
 [node name="ThighL" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="7"]
-transform = Transform3D(-0.88822, 0.423094, 0.179046, -0.271044, -0.797263, 0.539358, 0.370946, 0.430539, 0.822821, 0.0989671, 0.831558, -0.0204691)
+transform = Transform3D(-0.888219, 0.423094, 0.179048, -0.271044, -0.797263, 0.539358, 0.370947, 0.430539, 0.822821, 0.0989671, 0.831558, -0.0204691)
 bone_name = "Thigh_L"
 bone_idx = 52
 
@@ -284,7 +287,7 @@ transform = Transform3D(1, 1.1168e-08, 0, -7.23727e-12, 1, 0, 3.41061e-13, 0, 1,
 shape = SubResource("CapsuleShape3D_y55sg")
 
 [node name="ThighR" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="8"]
-transform = Transform3D(-0.881938, -0.44607, -0.152333, 0.315483, -0.798722, 0.512361, -0.35022, 0.403812, 0.845151, -0.0989671, 0.831558, -0.0204691)
+transform = Transform3D(-0.881939, -0.44607, -0.152333, 0.315483, -0.798722, 0.512361, -0.350221, 0.403813, 0.845151, -0.0989671, 0.831558, -0.0204691)
 bone_name = "Thigh_R"
 bone_idx = 46
 
@@ -295,7 +298,7 @@ transform = Transform3D(1, 1.1168e-08, 0, -7.23727e-12, 1, 0, 3.41061e-13, 0, 1,
 shape = SubResource("CapsuleShape3D_y55sg")
 
 [node name="CalfL" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="9"]
-transform = Transform3D(0.120531, -0.0106056, 0.992653, -0.239603, -0.97069, 0.0187224, 0.96336, -0.240099, -0.119539, 0.267913, 0.513203, 0.15145)
+transform = Transform3D(0.120532, -0.0106067, 0.992653, -0.239603, -0.97069, 0.0187215, 0.96336, -0.240099, -0.119541, 0.267913, 0.513203, 0.151449)
 bone_name = "calf_l"
 bone_idx = 53
 
@@ -306,7 +309,7 @@ transform = Transform3D(1, 1.11759e-08, -4.47035e-08, 1.11759e-08, 1, 2.32831e-0
 shape = SubResource("CapsuleShape3D_l04gf")
 
 [node name="CalfR" type="BoneAttachment3D" parent="Graphics/Anubis/Root/Skeleton3D" index="10"]
-transform = Transform3D(0.244409, -0.261935, -0.933624, 0.383881, -0.858023, 0.341219, -0.890449, -0.441798, -0.109156, -0.277088, 0.512621, 0.140777)
+transform = Transform3D(0.244409, -0.261935, -0.933624, 0.383881, -0.858024, 0.341219, -0.890449, -0.441798, -0.109156, -0.277088, 0.512621, 0.140777)
 bone_name = "calf_r"
 bone_idx = 47
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=59 format=4 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="Script" uid="uid://bfmsxvdg2meab" path="res://Characters/Player/weapon_manager.gd" id="2_bqsbk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cbf053mwu4o7a" path="res://Scripts/sound_manager_3d.gd" id="3_kpgn3"]
 [ext_resource type="PackedScene" uid="uid://v54ge8x7gmh2" path="res://Assets/Weapons/SM_Wep_Rifle_Assault_05.fbx" id="4_klx3t"]
 [ext_resource type="Script" uid="uid://ckqot4jcbqtfl" path="res://Weapons/weapon.gd" id="4_va6lm"]
+[ext_resource type="Script" uid="uid://bh8kt4m4ciud0" path="res://Characters/Player/step_tracker.gd" id="5_6ip0i"]
 [ext_resource type="PackedScene" uid="uid://bn1rvtkf3xav" path="res://Weapons/area_damage_emitter.tscn" id="5_8k5s7"]
 [ext_resource type="PackedScene" uid="uid://dt2n6pjbchdm1" path="res://Assets/Weapons/SM_Wep_Shotgun_01.fbx" id="5_r5ew0"]
 [ext_resource type="PackedScene" uid="uid://vrtuiiylco7r" path="res://Weapons/bullet_emitter.tscn" id="6_u2wkb"]
@@ -559,8 +560,7 @@ script = ExtResource("1_6xdwp")
 
 [node name="HealthManager" parent="." instance=ExtResource("3_cue0d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929092, 0)
-max_health = 100
-verbose = true
+max_health = 50
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="HealthManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.418286, 0)
@@ -573,6 +573,13 @@ bus = &"SFX"
 script = ExtResource("3_kpgn3")
 
 [node name="CharacterMover" parent="." instance=ExtResource("2_j341n")]
+
+[node name="StepTracker" type="Node3D" parent="CharacterMover"]
+script = ExtResource("5_6ip0i")
+
+[node name="StepPlayer" type="AudioStreamPlayer" parent="CharacterMover/StepTracker"]
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_01.wav", "res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_02.wav", "res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_03.wav", "res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_04.wav", "res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_05.wav", "res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_06.wav", "res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_07.wav", "res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_08.wav", "res://Audio/SFX/Footsteps/Concrete/footstep_concrete_run_09.wav"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

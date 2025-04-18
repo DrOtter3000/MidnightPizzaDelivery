@@ -28,6 +28,7 @@ signal health_changed(cur_health, max_health)
 
 
 func _ready() -> void:
+	cur_health = max_health
 	health_changed.emit(cur_health, max_health)
 	if verbose:
 		print("starting health: %s/%s" % [cur_health, max_health])
