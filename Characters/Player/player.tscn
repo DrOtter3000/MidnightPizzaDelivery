@@ -1,6 +1,7 @@
-[gd_scene load_steps=45 format=3 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=46 format=3 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
+[ext_resource type="PackedScene" uid="uid://bxy7urwreqj7b" path="res://damage_number_spawner.tscn" id="2_5jopl"]
 [ext_resource type="Script" uid="uid://bfmsxvdg2meab" path="res://Characters/Player/weapon_manager.gd" id="2_bqsbk"]
 [ext_resource type="PackedScene" uid="uid://bvhx3ml6th441" path="res://Characters/character_mover.tscn" id="2_j341n"]
 [ext_resource type="PackedScene" uid="uid://da5db8excip22" path="res://Assets/Weapons/SM_Wep_Machete_01.fbx" id="3_7vev3"]
@@ -297,9 +298,11 @@ collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_6xdwp")
 
+[node name="DamageNumberSpawner" parent="." instance=ExtResource("2_5jopl")]
+active = false
+
 [node name="HealthManager" parent="." instance=ExtResource("3_cue0d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929092, 0)
-max_health = 50
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="HealthManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.418286, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5cfpv5ky73ss"]
+[gd_scene load_steps=10 format=3 uid="uid://c5cfpv5ky73ss"]
 
 [ext_resource type="PackedScene" uid="uid://cin2kli57dv7k" path="res://Characters/health_manager.tscn" id="1_c7bj6"]
 [ext_resource type="Script" uid="uid://36v6irt7dpdg" path="res://Characters/Enemies/enemy.gd" id="1_o8ynm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://crshsjtp7olrl" path="res://Characters/vision_manager.tscn" id="3_oooen"]
 [ext_resource type="PackedScene" uid="uid://gdg6pfjj7c03" path="res://Characters/Enemies/ai_character_mover.tscn" id="4_p6hek"]
 [ext_resource type="PackedScene" uid="uid://vrtuiiylco7r" path="res://Weapons/bullet_emitter.tscn" id="5_dlowh"]
+[ext_resource type="PackedScene" uid="uid://bxy7urwreqj7b" path="res://damage_number_spawner.tscn" id="7_2odi8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xa46"]
 radius = 0.25
@@ -38,6 +39,9 @@ script = ExtResource("3_nb52q")
 
 [node name="AttackEmitter" parent="." instance=ExtResource("5_dlowh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.455383)
+
+[node name="DamageNumberSpawner" parent="." instance=ExtResource("7_2odi8")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 1.74237, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

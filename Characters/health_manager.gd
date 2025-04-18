@@ -7,6 +7,7 @@ const BLOOD_DECAL = preload("res://Effects/Blood_Effects/blood_decal.tscn")
 const GIB = preload("res://Effects/Gib/gib.tscn")
 
 @onready var blood_raycast: RayCast3D = $BloodRaycast
+@onready var damage_number_spawner: Node3D = $"../DamageNumberSpawner"
 
 @export var max_health := 10
 @export var cur_health := max_health
@@ -33,6 +34,7 @@ func _ready() -> void:
 	if verbose:
 		print("starting health: %s/%s" % [cur_health, max_health])
 
+
 var damage_taken_this_frame := 0.0
 var last_frame_damaged := -1
 func hurt(damage_data: DamageData):
@@ -50,6 +52,8 @@ func hurt(damage_data: DamageData):
 	
 	if dead:
 		return
+	
+	damage_number_spawner.spawn_number(damage_data.amount, true)
 	
 	cur_health -= damage_data.amount
 	dead = cur_health <= 0
