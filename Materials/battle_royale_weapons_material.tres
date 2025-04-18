@@ -6,7 +6,6 @@
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
-shading_mode = 2
 diffuse_mode = 3
 specular_mode = 2
 disable_ambient_light = true

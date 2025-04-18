@@ -41,7 +41,8 @@ _subresources={
 },
 "nodes": {
 "PATH:SM_Flame_FX": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 }
 }
 }

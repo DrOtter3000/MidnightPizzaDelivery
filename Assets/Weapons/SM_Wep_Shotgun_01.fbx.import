@@ -41,22 +41,28 @@ _subresources={
 },
 "nodes": {
 "PATH:SM_Wep_Shotgun_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Shotgun_01/SM_Wep_Shotgun_Pump_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Shotgun_01/SM_Wep_Shotgun_Slide_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Shotgun_01/SM_Wep_Shotgun_Stock_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Shotgun_01/SM_Wep_Shotgun_Stock_01/SM_Wep_Shotgun_StockPad_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Shotgun_01/SM_Wep_Shotgun_Trigger_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 }
 }
 }

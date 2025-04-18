@@ -41,19 +41,24 @@ _subresources={
 },
 "nodes": {
 "PATH:SM_Wep_Rifle_Assault_05": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Rifle_Assault_05/SM_Wep_Rifle_Assault_Mag_05": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Rifle_Assault_05/SM_Wep_Rifle_Assault_Slide_05": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Rifle_Assault_05/SM_Wep_Rifle_Assault_Stock_05": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_Rifle_Assault_05/SM_Wep_Rifle_Assault_Trigger_05": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 }
 }
 }

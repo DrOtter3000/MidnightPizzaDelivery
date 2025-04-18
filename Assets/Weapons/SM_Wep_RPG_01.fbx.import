@@ -41,22 +41,28 @@ _subresources={
 },
 "nodes": {
 "PATH:SM_Wep_RPG_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_RPG_01/SM_Wep_RPG_Rocket_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_RPG_01/SM_Wep_RPG_Sight_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_RPG_01/SM_Wep_RPG_Sight_02": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_RPG_01/SM_Wep_RPG_Trigger_01": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 },
 "PATH:SM_Wep_RPG_01/SM_Wep_RPG_Trigger_02": {
-"mesh_instance/cast_shadow": 0
+"mesh_instance/cast_shadow": 0,
+"mesh_instance/layers": 2
 }
 }
 }
