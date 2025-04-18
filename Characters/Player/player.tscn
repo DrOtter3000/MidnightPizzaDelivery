@@ -610,6 +610,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 cull_mask = 2
 fov = 60.0
 
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/WeaponCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.247995, 0.370992, -0.638754)
+layers = 2
+light_energy = 0.4
+omni_range = 1.60327
+
 [node name="PlayerUI" type="CanvasLayer" parent="."]
 script = ExtResource("19_hvtal")
 
