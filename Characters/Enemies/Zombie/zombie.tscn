@@ -326,7 +326,7 @@ shape = SubResource("CapsuleShape3D_l55f8")
 [node name="AnimationPlayer" parent="Graphics/Zombie_Businessman" index="1"]
 autoplay = "Root|Idle"
 
-[node name="AttackSound" parent="." index="8"]
+[node name="AttackSound" parent="." index="9"]
 available_sounds = ["res://Audio/SFX/Enemies/Zombie/zombie_voice_grunt_01.wav", "res://Audio/SFX/Enemies/Zombie/zombie_voice_grunt_02.wav", "res://Audio/SFX/Enemies/Zombie/zombie_voice_grunt_03.wav", "res://Audio/SFX/Enemies/Zombie/zombie_voice_grunt_04.wav", "res://Audio/SFX/Enemies/Zombie/zombie_voice_grunt_05.wav", "res://Audio/SFX/Enemies/Zombie/zombie_voice_grunt_06.wav", "res://Audio/SFX/Enemies/Zombie/zombie_voice_grunt_07.wav"]
 pitch_rate_min = 0.5
 pitch_rate_max = 1.1

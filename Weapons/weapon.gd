@@ -13,10 +13,14 @@ class_name Weapon
 @export var automatic := false
 
 @export var damage := 5
-@export var ammo := 30
+@export var base_ammo := 30
 @export var attack_rate := .2
 @export var animation_controlled_attack := false
 @export var silent_weapon := false
+@export var reload_time := 1.0
+
+var max_ammo := 100
+var ammo := 0
 
 var last_attack_time := -9999.9
 
@@ -26,6 +30,8 @@ signal ammo_updated(ammo_amt: int)
 
 
 func _ready() -> void:
+	max_ammo = int(base_ammo)
+	ammo = max_ammo
 	bullet_emitter.set_damage(damage)
 
 

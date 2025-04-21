@@ -26,6 +26,8 @@ var dead := false
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health_manager.died.connect(kill)
+	get_tree().call_group("HUD", "reload_container_visible", false)
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Fullscreen"):
@@ -45,7 +47,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		character_mover.jump()
 	
-	weapon_manager.attack(Input.is_action_just_pressed("fire"), Input.is_action_pressed("fire"))
+	if Input.is_action_just_pressed("reload"):
+		weapon_manager.reload_weapon()
+	
+	if Input.is_action_pressed("fire"):
+		weapon_manager.attack(Input.is_action_just_pressed("fire"), Input.is_action_pressed("fire"))
+	
 
 
 func _input(event: InputEvent) -> void:
@@ -74,3 +81,4 @@ func kill():
 
 func hurt(damage_data: DamageData):
 	health_manager.hurt(damage_data)
+	

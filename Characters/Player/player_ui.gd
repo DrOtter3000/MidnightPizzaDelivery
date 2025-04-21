@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var ammo_label: Label = %AmmoLabel
 @onready var health_manager: Node3D = $"../HealthManager"
 @onready var weapon_manager: Node3D = $"../Camera3D/WeaponManager"
+@onready var reload_container: MarginContainer = $CenterContainer/ReloadContainer
+@onready var reload_bar: ProgressBar = $CenterContainer/ReloadContainer/ReloadBar
 
 
 func _ready() -> void:
@@ -25,4 +27,11 @@ func update_ammo_display(ammo_amnt: int):
 		ammo_label.text = " "
 	else:
 		ammo_label.text = "Ammo: %s" % ammo_amnt
-	
+
+
+func update_reload_bar(percent: float):
+	reload_bar.value = percent
+
+
+func reload_container_visible(value: bool):
+	reload_container.visible = value

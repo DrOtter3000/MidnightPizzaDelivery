@@ -6,10 +6,12 @@ extends Node3D
 var weapons_unlocked = []
 var cur_slot := 0
 var cur_weapon = null
+var reload := false
 
 @onready var nearby_enemies_alert_area_small: Area3D = $NearbyEnemiesAlertAreaSmall
 @onready var nearby_enemies_alert_area_large: Area3D = $NearbyEnemiesAlertAreaLarge
 @onready var los_ray_cast: RayCast3D = $LOSRayCast
+@onready var reload_timer: Timer = $ReloadTimer
 
 
 func _ready():
@@ -25,7 +27,15 @@ func _ready():
 	switch_to_weapon_slot(0)
 
 
+func _process(delta: float) -> void:
+	if reload:
+		var reload_percent = (reload_timer.wait_time - reload_timer.time_left)/cur_weapon.reload_time
+		get_tree().call_group("HUD", "update_reload_bar", reload_percent)
+
+
 func attack(input_just_pressed: bool, input_held: bool):
+	if reload:
+		return
 	if cur_weapon is Weapon:
 		cur_weapon.attack(input_just_pressed, input_held)
 
@@ -89,3 +99,21 @@ func alert_enemies_on_fired():
 			if !los_ray_cast.is_colliding():
 				enemy.alert()
 			los_ray_cast.enabled = false
+
+
+func reload_weapon():
+	if reload:
+		return
+	if cur_weapon.ammo < 0:
+		return
+	reload = true
+	reload_timer.start(cur_weapon.reload_time)
+	get_tree().call_group("HUD", "reload_container_visible", true)
+
+
+func _on_reload_timer_timeout() -> void:
+	if cur_weapon is Weapon:
+		cur_weapon.ammo = cur_weapon.max_ammo
+	reload = false
+	get_tree().call_group("HUD", "update_ammo_display", cur_weapon.ammo)
+	get_tree().call_group("HUD", "reload_container_visible", false)

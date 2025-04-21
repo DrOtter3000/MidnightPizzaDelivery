@@ -13,7 +13,9 @@ Midnight Pizza Delivery is a simple lowpoly rouglight ego shooter, where you are
 ## Controls
 
 - **Walk** = W A S D
+- **Jump** = Spacebar
 - **Attack** = left mouse button
+- **Reload** = R
 
 
 ## Installation & Running the Game

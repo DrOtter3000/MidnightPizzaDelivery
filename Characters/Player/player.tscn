@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=48 format=3 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="PackedScene" uid="uid://bxy7urwreqj7b" path="res://damage_number_spawner.tscn" id="2_5jopl"]
@@ -293,6 +293,20 @@ expand_margin_bottom = 4.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvtal"]
 bg_color = Color(0, 1, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jopl"]
+bg_color = Color(0.6, 0.6, 0.6, 0.6)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yee8r"]
+
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 6
 collision_mask = 3
@@ -348,10 +362,11 @@ script = ExtResource("2_bqsbk")
 transform = Transform3D(-0.845156, -0.354324, -0.400207, -0.161285, 0.882872, -0.44105, 0.509606, -0.308209, -0.803311, 0.437022, -0.5, -0.660307)
 script = ExtResource("4_va6lm")
 damage = 15
-ammo = -1
+base_ammo = -1
 attack_rate = 0.5
 animation_controlled_attack = true
 silent_weapon = true
+reload_time = 2.0
 
 [node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/Machete" instance=ExtResource("6_u2wkb")]
 transform = Transform3D(1, -4.47035e-08, -5.96046e-08, 2.98023e-08, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
@@ -398,6 +413,7 @@ transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 
 script = ExtResource("4_va6lm")
 automatic = true
 attack_rate = 0.075
+reload_time = 2.0
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
@@ -423,6 +439,7 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
 
 [node name="Crosshair" parent="Camera3D/WeaponManager/Weapons/AssaultRifle" instance=ExtResource("7_blwrb")]
 crosshair_type = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="EquipSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
 pitch_scale = 0.6
@@ -450,6 +467,7 @@ pitch_rate_max = 1.1
 [node name="Shotgun" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)
 script = ExtResource("4_va6lm")
+damage = 3
 attack_rate = 1.0
 
 [node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun" instance=ExtResource("6_u2wkb")]
@@ -514,10 +532,8 @@ pitch_rate_max = 1.1
 [node name="RocketLauncher" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.389918)
 script = ExtResource("4_va6lm")
-automatic = true
 damage = 25
-ammo = 99999
-attack_rate = 2.0
+attack_rate = 1.5
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/RocketLauncher"]
 
@@ -591,6 +607,9 @@ shape = SubResource("SphereShape3D_hvtal")
 [node name="LOSRayCast" type="RayCast3D" parent="Camera3D/WeaponManager"]
 enabled = false
 
+[node name="ReloadTimer" type="Timer" parent="Camera3D/WeaponManager"]
+one_shot = true
+
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
 remote_path = NodePath("../../SubViewportContainer/SubViewport/WeaponCamera")
 
@@ -619,7 +638,7 @@ layers = 2
 light_energy = 0.4
 omni_range = 1.60327
 
-[node name="PlayerUI" type="CanvasLayer" parent="."]
+[node name="PlayerUI" type="CanvasLayer" parent="." groups=["HUD"]]
 script = ExtResource("19_hvtal")
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayerUI"]
@@ -661,4 +680,25 @@ theme_override_font_sizes/font_size = 64
 text = "Ammo: 0"
 horizontal_alignment = 1
 
+[node name="CenterContainer" type="CenterContainer" parent="PlayerUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReloadContainer" type="MarginContainer" parent="PlayerUI/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="ReloadBar" type="ProgressBar" parent="PlayerUI/CenterContainer/ReloadContainer"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5jopl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yee8r")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
 [connection signal="moved" from="CharacterMover" to="Camera3D/WeaponManager" method="update_animation"]
+[connection signal="timeout" from="Camera3D/WeaponManager/ReloadTimer" to="Camera3D/WeaponManager" method="_on_reload_timer_timeout"]

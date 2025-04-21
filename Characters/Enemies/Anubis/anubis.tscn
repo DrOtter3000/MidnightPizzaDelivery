@@ -322,7 +322,7 @@ shape = SubResource("CapsuleShape3D_l04gf")
 [node name="AnimationPlayer" parent="Graphics/Anubis" index="1"]
 autoplay = "Root|Idle"
 
-[node name="AttackSound" parent="." index="8"]
+[node name="AttackSound" parent="." index="9"]
 available_sounds = ["res://Audio/SFX/Weapons/Casting/CastFire/fireball_impact_burn_01.wav"]
 pitch_rate_min = 0.8
 pitch_rate_max = 0.82
