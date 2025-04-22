@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=49 format=3 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="PackedScene" uid="uid://bxy7urwreqj7b" path="res://damage_number_spawner.tscn" id="2_5jopl"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bmv8fxwn24l11" path="res://Weapons/projectile_emitter.tscn" id="15_5elsd"]
 [ext_resource type="Script" uid="uid://dw3771vpqtc4l" path="res://Characters/Player/player_ui.gd" id="19_hvtal"]
 [ext_resource type="PackedScene" uid="uid://bapre56qlip7g" path="res://Assets/Weapons/SM_Wep_RPG_01.fbx" id="21_6ip0i"]
+[ext_resource type="Script" uid="uid://dxyyva15pg1yh" path="res://UI/Menues/pause_menu.gd" id="25_yee8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygrrk"]
 radius = 0.25
@@ -412,7 +413,8 @@ available_sounds = ["res://Audio/SFX/Weapons/Melee/whoosh_swish_small_harsh_01.w
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)
 script = ExtResource("4_va6lm")
 automatic = true
-attack_rate = 0.075
+base_ammo = 15
+attack_rate = 0.09
 reload_time = 2.0
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
@@ -468,6 +470,7 @@ pitch_rate_max = 1.1
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)
 script = ExtResource("4_va6lm")
 damage = 3
+base_ammo = 2
 attack_rate = 1.0
 
 [node name="BulletEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun" instance=ExtResource("6_u2wkb")]
@@ -700,5 +703,103 @@ max_value = 1.0
 value = 0.5
 show_percentage = false
 
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("25_yee8r")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.184314, 0.184314, 0.615686)
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -64.0
+offset_right = 78.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseLabel" type="Label" parent="PauseMenu/PauseMenu"]
+layout_mode = 2
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="OptionsButton" type="Button" parent="PauseMenu/PauseMenu"]
+layout_mode = 2
+text = "Options"
+
+[node name="ContinueButton" type="Button" parent="PauseMenu/PauseMenu"]
+layout_mode = 2
+text = "Continue"
+
+[node name="MenuButton" type="Button" parent="PauseMenu/PauseMenu"]
+layout_mode = 2
+text = "Back to Main Menu"
+
+[node name="OptionsMenu" type="VBoxContainer" parent="PauseMenu"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -29.0
+offset_right = 31.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsLabel" type="Label" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+text = "Options"
+
+[node name="FullscreenButton" type="Button" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="AudioLabel" type="Label" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+text = "Sound:"
+
+[node name="MasterLabel" type="Label" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+text = "Volume Master"
+
+[node name="MasterSlider" type="HSlider" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+text = "Volume SFX"
+
+[node name="SFXSlider" type="HSlider" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+text = "Volume Music"
+
+[node name="MusicSlider" type="HSlider" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="PauseMenu/OptionsMenu"]
+layout_mode = 2
+text = "Back"
+
 [connection signal="moved" from="CharacterMover" to="Camera3D/WeaponManager" method="update_animation"]
 [connection signal="timeout" from="Camera3D/WeaponManager/ReloadTimer" to="Camera3D/WeaponManager" method="_on_reload_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/PauseMenu/OptionsButton" to="PauseMenu" method="_on_options_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenu/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenu/MenuButton" to="PauseMenu" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/OptionsMenu/FullscreenButton" to="PauseMenu" method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="PauseMenu/OptionsMenu/BackButton" to="PauseMenu" method="_on_back_button_pressed"]
