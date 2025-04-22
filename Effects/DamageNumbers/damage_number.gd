@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 
 
 func update_text(amount: int, hurt: bool):
-	print(position)
 	label_3d.text = str(amount)
 	if hurt:
 		label_3d.modulate = Color.WHITE

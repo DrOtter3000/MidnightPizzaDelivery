@@ -21,7 +21,6 @@ script = ExtResource("1_o8ynm")
 
 [node name="HealthManager" parent="." instance=ExtResource("1_c7bj6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.418286, 0)
-verbose = true
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="HealthManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.418286, 0)
