@@ -33,9 +33,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Fullscreen"):
 		var fs = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 		if fs:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			SettingsManager.change_fullscreen(false)
 		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			SettingsManager.change_fullscreen(true)
 	
 	if dead:
 		return
