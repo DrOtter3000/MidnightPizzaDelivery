@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c7c8ekomibgfg"]
+[gd_scene load_steps=52 format=3 uid="uid://c7c8ekomibgfg"]
 
 [ext_resource type="Script" uid="uid://mjkokgy7bw7k" path="res://Characters/Player/player.gd" id="1_6xdwp"]
 [ext_resource type="PackedScene" uid="uid://bxy7urwreqj7b" path="res://damage_number_spawner.tscn" id="2_5jopl"]
@@ -122,6 +122,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.42109e-14, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_yhol4"]
 resource_name = "attack"
@@ -140,10 +152,52 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, -0.05), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_yee8r"]
+resource_name = "reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.05), Vector3(0, -0.05, 0.011), Vector3(0.051, -0.05, -0.019), Vector3(0, 0, -0.05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.42109e-14, 0), Vector3(0.525166, 0.2903, 0.537371), Vector3(0.245755, 0.236669, -0.951624), Vector3(0, -1.42109e-14, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ReloadSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u2wkb"]
 _data = {
 &"RESET": SubResource("Animation_va6lm"),
-&"attack": SubResource("Animation_yhol4")
+&"attack": SubResource("Animation_yhol4"),
+&"reload": SubResource("Animation_yee8r")
 }
 
 [sub_resource type="Animation" id="Animation_x58m1"]
@@ -216,23 +270,117 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_v0k0y"]
+resource_name = "reload"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ReloadSound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.70234, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.49012e-08, -0.461305, 0.0571533), Vector3(-1.49012e-08, -0.393086, 0.0520372), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.70234, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.25777, 0.486232, -4.66518e-07), Vector3(-1.14518, 0.52404, -4.50526e-07), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6jp0"]
 _data = {
 &"RESET": SubResource("Animation_x58m1"),
-&"attack": SubResource("Animation_b71o8")
+&"attack": SubResource("Animation_b71o8"),
+&"reload": SubResource("Animation_v0k0y")
 }
 
 [sub_resource type="Animation" id="Animation_5elsd"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8k5s7"]
 resource_name = "attack"
 length = 0.5
 
+[sub_resource type="Animation" id="Animation_s0xdn"]
+resource_name = "reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.202189, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-4.47035e-08, 0, 0.251061), Vector3(0.166302, -0.0475632, 0.124646), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.202189, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.475845, 0.30068, -0.11808), Vector3(-0.306038, 1.09094, -0.130693), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_blwrb"]
 _data = {
 &"RESET": SubResource("Animation_5elsd"),
-&"attack": SubResource("Animation_8k5s7")
+&"attack": SubResource("Animation_8k5s7"),
+&"reload": SubResource("Animation_s0xdn")
 }
 
 [sub_resource type="Animation" id="Animation_hvtal"]
@@ -418,7 +566,7 @@ attack_rate = 0.09
 reload_time = 2.0
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
-transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, -1.42109e-14, 0, 0.999999, 0, 1.42109e-14, 0, 1, 0, 0, 0)
 
 [node name="AssaultRifle" parent="Camera3D/WeaponManager/Weapons/AssaultRifle/Graphics" instance=ExtResource("4_klx3t")]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
@@ -466,6 +614,11 @@ available_sounds = ["res://Audio/SFX/Weapons/SMG/gun_submachine_auto_shot_01.wav
 pitch_rate_min = 0.9
 pitch_rate_max = 1.1
 
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/AssaultRifle"]
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Rifle/gun_rifle_magazine_load_01.wav", "res://Audio/SFX/Weapons/Rifle/gun_rifle_magazine_load_02.wav", "res://Audio/SFX/Weapons/Rifle/gun_rifle_magazine_load_03.wav", "res://Audio/SFX/Weapons/Rifle/gun_rifle_magazine_load_04.wav"]
+
 [node name="Shotgun" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.392117)
 script = ExtResource("4_va6lm")
@@ -483,6 +636,7 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
 [node name="HitScanBulletEmitter" parent="Camera3D/WeaponManager/Weapons/Shotgun/BulletEmitter/BurstEmitter/SprayEmitter" instance=ExtResource("7_b71o8")]
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/Shotgun"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="MuzzleFlash" parent="Camera3D/WeaponManager/Weapons/Shotgun/Graphics" instance=ExtResource("7_x58m1")]
 transform = Transform3D(1, 0, -8.52651e-14, 0, 1, 0, 8.52651e-14, 0, 1, -0.00115542, 0.101109, 0.869389)
@@ -532,6 +686,11 @@ available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_cock_01.wav", "
 pitch_rate_min = 0.9
 pitch_rate_max = 1.1
 
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/Shotgun"]
+bus = &"SFX"
+script = ExtResource("11_jec2i")
+available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_load_bullet_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_load_bullet_02.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_load_bullet_03.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_load_bullet_04.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_load_bullet_05.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_load_bullet_06.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_load_bullet_07.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_load_bullet_08.wav"]
+
 [node name="RocketLauncher" type="Node3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0.23667, -0.327037, -0.389918)
 script = ExtResource("4_va6lm")
@@ -539,6 +698,7 @@ damage = 25
 attack_rate = 1.5
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/RocketLauncher"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="MuzzleFlash" parent="Camera3D/WeaponManager/Weapons/RocketLauncher/Graphics" instance=ExtResource("7_x58m1")]
 transform = Transform3D(1, 0, -8.52651e-14, 0, 1, 0, 8.52651e-14, 0, 1, 0, 0, 0)
@@ -584,6 +744,10 @@ script = ExtResource("11_jec2i")
 available_sounds = ["res://Audio/SFX/Weapons/Shotgun/gun_shotgun_dry_fire_01.wav", "res://Audio/SFX/Weapons/Shotgun/gun_shotgun_dry_fire_02.wav"]
 pitch_rate_min = 0.9
 pitch_rate_max = 1.1
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Camera3D/WeaponManager/Weapons/RocketLauncher"]
+bus = &"SFX"
+script = ExtResource("11_jec2i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager"]
 libraries = {

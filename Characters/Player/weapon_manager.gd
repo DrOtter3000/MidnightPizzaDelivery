@@ -106,6 +106,7 @@ func reload_weapon():
 		return
 	if cur_weapon.ammo < 0:
 		return
+	cur_weapon.play_reload_weapon_effect()
 	reload = true
 	reload_timer.start(cur_weapon.reload_time)
 	get_tree().call_group("HUD", "reload_container_visible", true)

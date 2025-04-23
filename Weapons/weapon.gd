@@ -92,3 +92,7 @@ func is_idle() -> bool:
 func add_ammo(amnt: int):
 	ammo += amnt
 	ammo_updated.emit(ammo)
+
+
+func play_reload_weapon_effect():
+	animation_player.play("reload", -1, 1/reload_time, false)
