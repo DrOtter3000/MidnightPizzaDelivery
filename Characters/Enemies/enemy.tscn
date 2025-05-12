@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bxy7urwreqj7b" path="res://damage_number_spawner.tscn" id="7_2odi8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xa46"]
-radius = 0.25
+radius = 0.2
+height = 1.62923
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oooen"]
 radius = 15.0
@@ -43,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.455383)
 transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 1.74237, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825108, 0)
 shape = SubResource("CapsuleShape3D_1xa46")
 
 [node name="Graphics" type="Node3D" parent="."]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MidnightPizzaDelivery"
-run/main_scene="uid://dps74tw4e0l27"
+run/main_scene="uid://rcym62tjo40b"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -83,3 +83,4 @@ Pause={
 3d_physics/layer_2="Characters"
 3d_physics/layer_3="HitBoxes"
 3d_physics/layer_4="Gibs"
+3d_physics/layer_5="Layer 5"

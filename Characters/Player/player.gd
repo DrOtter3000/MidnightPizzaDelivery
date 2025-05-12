@@ -52,7 +52,6 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("fire"):
 		weapon_manager.attack(Input.is_action_just_pressed("fire"), Input.is_action_pressed("fire"))
-	
 
 
 func _input(event: InputEvent) -> void:
@@ -81,4 +80,3 @@ func kill():
 
 func hurt(damage_data: DamageData):
 	health_manager.hurt(damage_data)
-	

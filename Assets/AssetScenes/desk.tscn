@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://dblfvbhua1yf2"]
+
+[ext_resource type="Script" uid="uid://debht7fbnaoy1" path="res://Assets/AssetScenes/desk.gd" id="1_haqmm"]
+[ext_resource type="PackedScene" uid="uid://b1eqdvclfw7q7" path="res://Assets/Environment/Office/Desks and Chairs/Desks/SM_Prop_Desk_04.fbx" id="1_i0v6g"]
+[ext_resource type="PackedScene" uid="uid://c4je3ce0xtkl6" path="res://Assets/Environment/Office/Desks and Chairs/Chairs/SM_Prop_Chair_07.fbx" id="3_wal6u"]
+[ext_resource type="PackedScene" uid="uid://bhhlxhr1g1jqg" path="res://Assets/Environment/Office/Computers/SM_Prop_Computer_Monitor_03.fbx" id="4_wal6u"]
+[ext_resource type="PackedScene" uid="uid://cklna0ujtsslx" path="res://Characters/hit_box.tscn" id="5_k0wqp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_haqmm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0wqp"]
+size = Vector3(0.357605, 0.0952454, 0.210449)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wal6u"]
+size = Vector3(0.5896, 0.389526, 0.0859985)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_te0wg"]
+size = Vector3(0.687744, 0.482727, 0.0549622)
+
+[node name="Desk" type="Node3D"]
+script = ExtResource("1_haqmm")
+
+[node name="SM_Prop_Desk_04" parent="." instance=ExtResource("1_i0v6g")]
+
+[node name="SM_Prop_Chair_07" parent="." instance=ExtResource("3_wal6u")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.77)
+
+[node name="Monitor" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13649, 0)
+collision_layer = 16
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_haqmm")
+max_contacts_reported = 2
+
+[node name="SM_Prop_Computer_Monitor_03" parent="Monitor" instance=ExtResource("4_wal6u")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Monitor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00857544, 0.068985, -0.0065918)
+shape = SubResource("BoxShape3D_k0wqp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Monitor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0308838, 0.325623, 0.00740781)
+shape = SubResource("BoxShape3D_wal6u")
+
+[node name="HitBox" parent="Monitor" instance=ExtResource("5_k0wqp")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Monitor/HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010376, 0.344025, 0.0375214)
+shape = SubResource("BoxShape3D_te0wg")
